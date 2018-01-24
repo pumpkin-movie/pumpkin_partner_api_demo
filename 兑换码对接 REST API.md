@@ -89,6 +89,6 @@ sign错误:
 
 加密方式: `HmacSHA1`
 
-详情查看 [PartnersApiSignature.java]() 文件
+详情查看 [PartnersApiSignature.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/PartnersApiSignature.java) 文件
 
 
