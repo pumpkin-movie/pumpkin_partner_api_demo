@@ -30,8 +30,8 @@ public class PartnersApiSignature {
         long timestamp = System.currentTimeMillis();
         Map params = new HashMap();
         params.put("code_type","1m");
-        String result = partnersApiSignature(httpMethod,action,format,pid,signatureNonce,accessSecret,timestamp,params);
-        System.out.println(result);
+        String sign = partnersApiSignature(httpMethod,action,format,pid,signatureNonce,accessSecret,timestamp,params);
+        System.out.println(sign);
     }
 
     /**
