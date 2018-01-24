@@ -88,3 +88,7 @@ sign错误:
 `key`: `sing-key` (邮件告知)
 
 加密方式: `HmacSHA1`
+
+详情查看 [PartnersApiSignature.java]() 文件
+
+
