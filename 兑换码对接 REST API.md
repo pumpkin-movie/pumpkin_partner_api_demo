@@ -16,7 +16,17 @@
 
 请求类型: `application/x-www-form-urlencoded`
 
-#### 传入参数:
+#### Header Value
+
+`必填` `string` `format`: 返回类型 -> `JSON`
+
+`必填` `string` `action`: 请求action -> `/partner/redeem_code`
+
+`必填` `string` `http_method`: 请求方法 -> `POST`
+
+`必填` `string` `signature_nonce`: 随机数
+
+#### Form 传入参数:
 
 `必填` `string` `pid`: 合作方 PID
 
