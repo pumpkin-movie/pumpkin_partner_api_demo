@@ -32,7 +32,7 @@
 
 `必填` `string` `code_type` : 兑换码类型
 
-`必填` `string` `timestamp` : 当前时间戳
+`必填` `long` `timestamp` : 当前时间戳
 
 `必填` `string` `accessSecret`: sign 签名
 
