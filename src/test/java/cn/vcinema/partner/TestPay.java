@@ -21,9 +21,16 @@
 package cn.vcinema.partner;
 
 import org.apache.commons.collections.map.LinkedMap;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * User: Xulin Zhuang
@@ -44,11 +51,20 @@ public class TestPay {
     public void getRedeemCode() throws Exception {
         String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
-        LinkedMap parameters = new LinkedMap();
-        parameters.put("pid",PartnerInfo.pid);
-        parameters.put("code_type",PartnerInfo.codeType);
-        parameters.put("sign",PartnersApiSignature.partnersApiSignature(PartnerInfo.httpMethod,PartnerInfo.action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,parameters));
-        System.out.println(HttpClientUtil.doPost("http://dev.api.guoing.com:3505/pay/redeem_code",signatureNonce,parameters));
+
+        Map params = new HashMap<>();
+        params.put("pid",PartnerInfo.pid);
+        params.put("code_type",PartnerInfo.codeType);
+        params.put("timestamp",timestamp);
+
+        List<NameValuePair> parameter = new ArrayList<>();
+        parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
+        parameter.add(new BasicNameValuePair("code_type", PartnerInfo.codeType));
+        parameter.add(new BasicNameValuePair("timestamp", timestamp+""));
+
+        parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpMethod,PartnerInfo.action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
+
+        System.out.println(HttpClientUtil.doPost("http://127.0.0.1:3505/pay/redeem_code",signatureNonce,parameter));
 
     }
 }

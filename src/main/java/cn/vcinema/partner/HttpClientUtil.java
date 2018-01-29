@@ -21,16 +21,14 @@
 package cn.vcinema.partner;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
-import org.apache.commons.collections.map.LinkedMap;
 
-import java.util.ArrayList;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -44,10 +42,10 @@ public class HttpClientUtil {
      * post模拟浏览器请求
      *
      * @param url 请求的URL
-     * @param parameters 请求参数
+     * @param parameter 请求参数
      * @return http访问返回值
      */
-    public static String doPost(String url,String signatureNonce, LinkedMap parameters) {
+    public static String doPost(String url,String signatureNonce, List parameter) throws UnsupportedEncodingException {
         HttpPost post = new HttpPost(url); // 设置响应头信息
         post.addHeader("Connection", "keep-alive");
         post.addHeader("Accept", "*/*");
@@ -56,25 +54,10 @@ public class HttpClientUtil {
         post.addHeader("signature_nonce", signatureNonce);
         post.addHeader("version", "v1");
 
-        // 封装参数
-        if (parameters != null && parameters.size() > 0) {
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            for (int i = 0, len = parameters.size(); i < len; i++) {
-                Object v = parameters.getValue(i);
-                if (v == null)
-                    continue;
-                String value = v.toString();
-                String key = parameters.get(i).toString();
-                params.add(new BasicNameValuePair(key, value));
-            }
-            if (url.indexOf("?") > -1) {
-                url += "&" + URLEncodedUtils.format(params, "UTF-8");
-            } else {
-                url += "?" + URLEncodedUtils.format(params, "UTF-8");
-            }
-        }
-
         post.setEntity(new StringEntity(url, "UTF-8"));
+
+        UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameter);
+        post.setEntity(entity);
         String returnStr = null;
         try {
             DefaultHttpClient httpclient = new DefaultHttpClient();
