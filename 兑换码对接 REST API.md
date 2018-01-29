@@ -8,7 +8,7 @@
 
 #### API 地址: 
 
-测试地址: ``
+测试地址: `http://dev.api.guoing.com:3505/pay/redeem_code`
 
 正式地址: ``
 
@@ -20,9 +20,7 @@
 
 `必填` `string` `format`: 返回类型 -> `JSON`
 
-`必填` `string` `action`: 请求action -> `/partner/redeem_code`
-
-`必填` `string` `http_method`: 请求方法 -> `POST`
+`必填` `string` `version`: 版本号 -> `v1`
 
 `必填` `string` `signature_nonce`: 随机数
 
