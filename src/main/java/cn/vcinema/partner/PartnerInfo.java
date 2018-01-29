@@ -29,8 +29,8 @@ public class PartnerInfo {
     public final static String format = "JSON";
     public final static String action = "/pay/redeem_code";
     public final static String httpMethod = "POST";
-    public final static String pid = "test";
+    public final static String pid = "TEST_PID";
     public final static String codeType = "m1";
-    public final static String accessSecret = "CN8A3wnysAd9TGr6";
+    public final static String accessSecret = "TEST_ACCESS_SECRET";
     public final static String version = "v1";
 }
