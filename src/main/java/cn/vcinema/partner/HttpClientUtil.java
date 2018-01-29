@@ -53,7 +53,7 @@ public class HttpClientUtil {
         post.addHeader("Accept", "*/*");
         post.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         post.addHeader("format", "JSON");
-        //post.addHeader("signature_nonce", signatureNonce);
+        post.addHeader("signature_nonce", signatureNonce);
         post.addHeader("version", "v1");
 
         // 封装参数

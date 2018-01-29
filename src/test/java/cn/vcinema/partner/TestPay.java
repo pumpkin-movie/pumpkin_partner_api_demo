@@ -47,7 +47,6 @@ public class TestPay {
         LinkedMap parameters = new LinkedMap();
         parameters.put("pid",PartnerInfo.pid);
         parameters.put("code_type",PartnerInfo.codeType);
-        parameters.put("timestamp",timestamp);
         parameters.put("sign",PartnersApiSignature.partnersApiSignature(PartnerInfo.httpMethod,PartnerInfo.action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,parameters));
         System.out.println(HttpClientUtil.doPost("http://dev.api.guoing.com:3505/pay/redeem_code",signatureNonce,parameters));
 
