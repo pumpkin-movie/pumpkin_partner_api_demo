@@ -26,10 +26,11 @@ package cn.vcinema.partner;
  * Time: 12:55 PM
  */
 public class PartnerInfo {
-    public final static String format = "json";
-    public final static String action = "";
+    public final static String format = "JSON";
+    public final static String action = "/pay/redeem_code";
     public final static String httpMethod = "POST";
-    public final static String pid = "1";
+    public final static String pid = "test";
     public final static String codeType = "m1";
-    public final static String accessSecret = "";
+    public final static String accessSecret = "CN8A3wnysAd9TGr6";
+    public final static String version = "v1";
 }

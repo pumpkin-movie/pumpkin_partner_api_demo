@@ -53,15 +53,16 @@ public class TestPay {
         long timestamp = System.currentTimeMillis();
 
         Map params = new HashMap<>();
-        params.put("pid",PartnerInfo.pid);
         params.put("code_type",PartnerInfo.codeType);
-        params.put("timestamp",timestamp);
+        params.put("version",PartnerInfo.version);
 
         List<NameValuePair> parameter = new ArrayList<>();
         parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
         parameter.add(new BasicNameValuePair("code_type", PartnerInfo.codeType));
         parameter.add(new BasicNameValuePair("timestamp", timestamp+""));
-
+        parameter.add(new BasicNameValuePair("signature_nonce", signatureNonce));
+        parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
+        parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpMethod,PartnerInfo.action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
 
         System.out.println(HttpClientUtil.doPost("http://127.0.0.1:3505/pay/redeem_code",signatureNonce,parameter));

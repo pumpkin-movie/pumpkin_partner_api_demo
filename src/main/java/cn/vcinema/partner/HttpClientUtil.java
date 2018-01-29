@@ -50,9 +50,6 @@ public class HttpClientUtil {
         post.addHeader("Connection", "keep-alive");
         post.addHeader("Accept", "*/*");
         post.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-        post.addHeader("format", "JSON");
-        post.addHeader("signature_nonce", signatureNonce);
-        post.addHeader("version", "v1");
 
         post.setEntity(new StringEntity(url, "UTF-8"));
 
