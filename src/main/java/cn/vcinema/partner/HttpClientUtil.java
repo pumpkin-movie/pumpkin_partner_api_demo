@@ -20,15 +20,25 @@
 
 package cn.vcinema.partner;
 
+import org.apache.commons.collections.map.LinkedMap;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.HTTP;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,7 +55,7 @@ public class HttpClientUtil {
      * @param parameter 请求参数
      * @return http访问返回值
      */
-    public static String doPost(String url,String signatureNonce, List parameter) throws UnsupportedEncodingException {
+    public static String doPost(String url, List parameter) throws UnsupportedEncodingException {
         HttpPost post = new HttpPost(url); // 设置响应头信息
         post.addHeader("Connection", "keep-alive");
         post.addHeader("Accept", "*/*");
@@ -64,5 +74,36 @@ public class HttpClientUtil {
             e.printStackTrace();
         }
         return returnStr;
+    }
+
+    /**
+     * get模拟浏览器请求
+     *
+     * @param url 请求的URL
+     * @param parameters 参数
+     * @return http访问返回值
+     */
+    public static String doGet(String url,LinkedMap parameters) throws IOException {
+        if (parameters != null && parameters.size() > 0) {
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            for (int i = 0, len = parameters.size(); i < len; i++) {
+                Object v = parameters.getValue(i);
+                if (v == null)
+                    continue;
+                String value = v.toString();
+                String key = parameters.get(i).toString();
+                params.add(new BasicNameValuePair(key, value));
+            }
+            if (url.indexOf("?") > -1) {
+                url += "&" + URLEncodedUtils.format(params, "UTF-8");
+            } else {
+                url += "?" + URLEncodedUtils.format(params, "UTF-8");
+            }
+        }
+        HttpGet httpGet = new HttpGet(url);
+        httpGet.addHeader("Content-Type", "text/html;charset=UTF-8");
+        HttpClient client = HttpClientBuilder.create().build();
+        HttpResponse response = client.execute(httpGet);
+        return EntityUtils.toString(response.getEntity(), "utf-8");
     }
 }

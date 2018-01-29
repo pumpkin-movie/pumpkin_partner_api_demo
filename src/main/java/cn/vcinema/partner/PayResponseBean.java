@@ -23,16 +23,25 @@ package cn.vcinema.partner;
 /**
  * User: Xulin Zhuang
  * Date: 29/1/2018
- * Time: 12:55 PM
+ * Time: 9:42 PM
  */
-public class PartnerInfo {
-    public final static String format = "JSON";
-    public final static String pay_action = "/pay/redeem_code";
-    public final static String movie_action = "/movie";
-    public final static String httpPostMethod = "POST";
-    public final static String httpGetMethod = "GET";
-    public final static String pid = "TEST_PID";
-    public final static String codeType = "m1";
-    public final static String accessSecret = "TEST_ACCESS_SECRET";
-    public final static String version = "v1";
+public class PayResponseBean {
+    private String statusCode;
+    private String message;
+
+    public String getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
