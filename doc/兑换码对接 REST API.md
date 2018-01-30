@@ -6,35 +6,34 @@
 
 ## 生成兑换码API
 
-#### API 地址: 
+#### API 地址及校验信息: 
+```
+测试地址：http://dev.api.guoing.com:3505
+测试PID：TEST_PID
+测试PID access secret：TEST_ACCESS_SECRET
+```
 
-测试地址: ``
-
-正式地址: ``
+请联系后获取详细内容
+```
+正式接口地址：
+PID：
+PID access secret:
+```
 
 #### 请求方式: `POST`
 
 请求类型: `application/x-www-form-urlencoded`
 
-#### Header Value
-
-`必填` `string` `format`: 返回类型 -> `JSON`
-
-`必填` `string` `action`: 请求action -> `/partner/redeem_code`
-
-`必填` `string` `http_method`: 请求方法 -> `POST`
-
-`必填` `string` `signature_nonce`: 随机数
-
 #### Form 传入参数:
 
-`必填` `string` `pid`: 合作方 PID
-
-`必填` `string` `code_type` : 兑换码类型
-
-`必填` `long` `timestamp` : 当前时间戳
-
-`必填` `string` `accessSecret`: sign 签名
+序号  | 字段名称 |   类型   | 备注
+---- | ------- | ------ | -----
+  1  |  pid    | string  | 合作方ID
+  2  | code_type | string | 兑换码类型
+  3  | timestamp | long   | 时间戳
+  4  | signature_nonce  | string | 随机数
+  5  | format    | string |  返回类型 标准参数：JSON
+  6  | access_secret | string | sign 签名，加密方式请查看DEMO
 
 ```
 兑换码会员类型: 

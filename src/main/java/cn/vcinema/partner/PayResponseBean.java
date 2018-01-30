@@ -21,6 +21,8 @@
 package cn.vcinema.partner;
 
 /**
+ * 支付返回值类型
+ *
  * User: Xulin Zhuang
  * Date: 29/1/2018
  * Time: 9:42 PM
@@ -28,6 +30,30 @@ package cn.vcinema.partner;
 public class PayResponseBean {
     private String statusCode;
     private String message;
+    private long timestamp;
+    private String date;
+    private Content content;
+
+    class Content{
+        private String code;
+        private String codeType;
+
+        public String getCode() {
+            return code;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public String getCodeType() {
+            return codeType;
+        }
+
+        public void setCodeType(String codeType) {
+            this.codeType = codeType;
+        }
+    }
 
     public String getStatusCode() {
         return statusCode;
@@ -43,5 +69,29 @@ public class PayResponseBean {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Content getContent() {
+        return content;
+    }
+
+    public void setContent(Content content) {
+        this.content = content;
     }
 }

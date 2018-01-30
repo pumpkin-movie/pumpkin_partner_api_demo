@@ -21,18 +21,20 @@
 package cn.vcinema.partner;
 
 /**
+ * Partner Info
+ *
  * User: Xulin Zhuang
  * Date: 29/1/2018
  * Time: 12:55 PM
  */
 public class PartnerInfo {
-    public final static String format = "JSON";
-    public final static String pay_action = "/pay/redeem_code";
-    public final static String movie_action = "/movie";
-    public final static String httpPostMethod = "POST";
-    public final static String httpGetMethod = "GET";
-    public final static String pid = "TEST_PID";
-    public final static String codeType = "m1";
-    public final static String accessSecret = "TEST_ACCESS_SECRET";
-    public final static String version = "v1";
+    final static String format = "JSON";
+    final static String pay_action = "/pay/redeem_code";
+    final static String movie_action = "/movie";
+    final static String httpPostMethod = "POST";
+    final static String httpGetMethod = "GET";
+    final static String pid = "TEST_PID";
+    final static String codeType = "m1";
+    final static String accessSecret = "TEST_ACCESS_SECRET";
+    final static String version = "v1";
 }

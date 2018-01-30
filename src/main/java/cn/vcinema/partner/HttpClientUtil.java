@@ -34,14 +34,13 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
  * User: Xulin Zhuang
  * Date: 29/1/2018
  * Time: 1:01 PM
@@ -56,7 +55,7 @@ public class HttpClientUtil {
      * @return http访问返回值
      */
     public static String doPost(String url, List parameter) throws UnsupportedEncodingException {
-        HttpPost post = new HttpPost(url); // 设置响应头信息
+        HttpPost post = new HttpPost(url);
         post.addHeader("Connection", "keep-alive");
         post.addHeader("Accept", "*/*");
         post.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");

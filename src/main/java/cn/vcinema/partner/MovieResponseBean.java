@@ -20,41 +20,18 @@
 
 package cn.vcinema.partner;
 
-import org.apache.commons.collections.map.LinkedMap;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import java.util.List;
 
 /**
- * 影片信息相关的接口调用DEMO
+ * 电影返回值Bean
  *
  * User: Xulin Zhuang
- * Date: 29/1/2018
- * Time: 8:44 PM
+ * Date: 30/1/2018
+ * Time: 9:51 AM
  */
-public class TestMovie {
-    @Before
-    public void setUp() throws Exception {
-    }
+public class MovieResponseBean {
+    private int total_movie_number;
 
-    @After
-    public void tearDown() throws Exception {
-    }
 
-    @Test
-    public void getMoviesSuccessful() throws Exception {
-        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
-        long timestamp = System.currentTimeMillis();
-
-        LinkedMap params = new LinkedMap();
-        params.put("pid",PartnerInfo.codeType);
-        params.put("timestamp", timestamp+"");
-        params.put("signature_nonce", signatureNonce);
-        params.put("format", PartnerInfo.format);
-        params.put("version", PartnerInfo.version);
-        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,PartnerInfo.movie_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params));
-
-        System.out.println(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync",params));
-
-    }
+    private List movies;
 }
