@@ -1,3 +1,6 @@
+Master Branch [![Build Status](https://travis-ci.org/pumpkin-movie/pumpkin_partner_api_demo.svg?branch=master)](https://travis-ci.org/pumpkin-movie/pumpkin_partner_api_demo)
+
+Develop Branch [![Build Status](https://travis-ci.org/pumpkin-movie/pumpkin_partner_api_demo.svg?branch=develop)](https://travis-ci.org/pumpkin-movie/pumpkin_partner_api_demo)
 
 南瓜电影第三方合作对接
 

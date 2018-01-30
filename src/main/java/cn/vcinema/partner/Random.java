@@ -17,14 +17,18 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+package cn.vcinema.partner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Created by Xulin Zhuang on 18/7/2017 11:38 AM.
- * Version: v1.0
- * Update by Xulin Zhuang on 18/7/2017 11:38 AM.
+ * 随机数生成
+ *
+ * User: Xulin Zhuang
+ * Date: 29/1/2018
+ * Time: 9:42 PM
+ *
  */
 public class Random {
 
