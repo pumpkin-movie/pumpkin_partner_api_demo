@@ -20,10 +20,15 @@
 
 package cn.vcinema.partner;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.collections.map.LinkedMap;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * 影片信息相关的接口调用DEMO
@@ -47,14 +52,30 @@ public class TestMovie {
         long timestamp = System.currentTimeMillis();
 
         LinkedMap params = new LinkedMap();
-        params.put("pid",PartnerInfo.codeType);
+        params.put("pid",PartnerInfo.pid);
         params.put("timestamp", timestamp+"");
         params.put("signature_nonce", signatureNonce);
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
         params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,PartnerInfo.movie_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params));
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync",params),PayResponseBean.class);
+        assertEquals("200",result.getStatusCode());
+    }
 
-        System.out.println(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync",params));
+    @Test
+    public void getMovieSignFailure() throws IOException {
+        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+        long timestamp = System.currentTimeMillis();
+
+        LinkedMap params = new LinkedMap();
+        params.put("pid",PartnerInfo.pid);
+        params.put("timestamp", timestamp+"");
+        params.put("signature_nonce", signatureNonce);
+        params.put("format", PartnerInfo.format);
+        params.put("version", PartnerInfo.version);
+        params.put("sign", "ERROR SIGN");
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync",params),PayResponseBean.class);
+        assertEquals("17006",result.getStatusCode());
 
     }
 }

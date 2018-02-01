@@ -31,7 +31,7 @@ public class PartnerInfo {
     final static String format = "JSON";
     final static String pay_action = "/pay/redeem_code";
     final static String pay_statistics_action = "/pay/redeem_code_statistics";
-    final static String movie_action = "/movie";
+    final static String movie_action = "/movie/sync";
     final static String httpPostMethod = "POST";
     final static String httpGetMethod = "GET";
     final static String pid = "TEST_PID";
