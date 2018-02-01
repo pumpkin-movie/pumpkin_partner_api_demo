@@ -20,22 +20,59 @@
 
 package cn.vcinema.partner;
 
+import java.util.List;
+
 /**
- * Partner Info
+ * Pay Statistics Bean
  *
  * User: Xulin Zhuang
- * Date: 29/1/2018
- * Time: 12:55 PM
+ * Date: 30/1/2018
+ * Time: 11:41 AM
  */
-public class PartnerInfo {
-    final static String format = "JSON";
-    final static String pay_action = "/pay/redeem_code";
-    final static String pay_statistics_action = "/pay/redeem_code_statistics";
-    final static String movie_action = "/movie";
-    final static String httpPostMethod = "POST";
-    final static String httpGetMethod = "GET";
-    final static String pid = "TEST_PID";
-    final static String codeType = "m1";
-    final static String accessSecret = "TEST_ACCESS_SECRET";
-    final static String version = "v1";
+public class PayStatisticsResponseBean {
+    private String statusCode;
+    private String message;
+    private long timestamp;
+    private String date;
+    private List content;
+
+    public String getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public List getContent() {
+        return content;
+    }
+
+    public void setContent(List content) {
+        this.content = content;
+    }
 }
