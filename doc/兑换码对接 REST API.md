@@ -38,7 +38,7 @@ PID access secret:
   4  | signature_nonce  | string | 随机数
   5  | format    | string |  返回类型 标准参数：JSON
   6  | access_secret | string | sign 签名，加密方式请查看DEMO
-
+  7  | version | string | 接口版本，默认v1
 ```
 兑换码会员类型: 
 m1=1个月 
