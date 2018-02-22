@@ -32,10 +32,12 @@ public class PartnerInfo {
     final static String pay_action = "/pay/redeem_code";
     final static String pay_statistics_action = "/pay/redeem_code_statistics";
     final static String movie_action = "/movie/sync";
+    final static String pay_order_action = "/pay/pay_order";
     final static String httpPostMethod = "POST";
     final static String httpGetMethod = "GET";
     final static String pid = "TEST_PID";
     final static String codeType = "m1";
+    final static String productType = "m1";
     final static String accessSecret = "TEST_ACCESS_SECRET";
     final static String version = "v1";
 }

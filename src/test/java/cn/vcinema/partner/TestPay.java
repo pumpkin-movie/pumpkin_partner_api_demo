@@ -160,4 +160,31 @@ public class TestPay {
     }
 
 
+    /**
+     * 成功创建一个订单测试
+     *
+     * @throws Exception
+     */
+    @Test
+    public void payOrderSuccessful() throws Exception {
+        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+        long timestamp = System.currentTimeMillis();
+
+        Map<String,String> params = new HashMap<>();
+        params.put("product_type",PartnerInfo.productType);
+        params.put("version",PartnerInfo.version);
+
+        List<NameValuePair> parameter = new ArrayList<>();
+        parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
+        parameter.add(new BasicNameValuePair("product_type", PartnerInfo.productType));
+        parameter.add(new BasicNameValuePair("timestamp", timestamp+""));
+        parameter.add(new BasicNameValuePair("signature_nonce", signatureNonce));
+        parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
+        parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
+        parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.pay_order_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.pay_order_action,parameter),PayResponseBean.class);
+        assertEquals("200",result.getStatusCode());
+    }
+
+
 }
