@@ -26,8 +26,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
 /**
  * User: Xulin Zhuang
  * Date: 22/2/2018
@@ -48,13 +46,13 @@ public class TestCdn {
         long timestamp = System.currentTimeMillis();
 
         LinkedMap params = new LinkedMap();
-        params.put("pid","");
+        params.put("pid","s1");
         params.put("timestamp", timestamp+"");
         params.put("signature_nonce", signatureNonce);
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
         params.put("log_date","20180201");
-        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,"/cdn/log",PartnerInfo.format,"s1",signatureNonce,"",timestamp,params));
+        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,"/cdn/log",PartnerInfo.format,"s1",signatureNonce,"k4LtF4JWay6TG8bD",timestamp,params));
         String result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/cdn/log",params),String.class);
         System.out.println(result);
         //System.out.println(result.getMessage());
