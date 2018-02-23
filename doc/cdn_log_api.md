@@ -65,6 +65,34 @@ PID access secret:
   1  |  content | string  | 日志内容下载链接
   2  | data_time | string | 内容生成时间
   3  | data_timestamp |  long   | 内容生成时间戳
+  
+##### log 信息:
+
+```
+terminal_category STRING,   -- TV,IPHONE,IPAD,APH
+  device_info STRING,     -- 设备唯一码
+  device_type STRING,    -- 设备类型
+  device_id STRING,     --设备唯一码
+  os_version STRING,   --设备操作系统
+  user_id STRING,   --用户ID
+  app_version STRING,   --应用版本
+  remote_addr STRING,   --用户IP
+  network_environment STRING,   --网络类型
+  cdn_ip STRING,     --CDN IP
+  isp_name STRING,   --ISP Name
+  movie_url STRING,   --影片地址
+  p2p_status STRING,   --P2P状态
+  decode_type STRING,   -- 解码模式
+  operate_type STRING,   --操作类型，
+  is_play_status STRING,  --播放状态
+  buffer_start_time STRING,  -- 卡顿开始时间，只有操作类型是卡顿的时候才有值
+  buffer_end_time STRING,   --卡顿结束时间，只有操作类型是卡顿的时候才有值
+  start_position STRING,    --影片开始帧
+  end_position STRING,      --影片结束帧
+  play_total_time STRING,   --单次播放总时长
+  log_record_timestamp STRING,   --日志记录时间的timestamp
+  log_record_time STRING   --日志记录时间
+```
 
 #### Sign生成规则
 
