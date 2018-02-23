@@ -46,13 +46,13 @@ public class TestCdn {
         long timestamp = System.currentTimeMillis();
 
         LinkedMap params = new LinkedMap();
-        params.put("pid","s1");
+        params.put("pid","");
         params.put("timestamp", timestamp+"");
         params.put("signature_nonce", signatureNonce);
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
         params.put("log_date","20180201");
-        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,"/cdn/log",PartnerInfo.format,"s1",signatureNonce,"k4LtF4JWay6TG8bD",timestamp,params));
+        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,"/cdn/log",PartnerInfo.format,"pid",signatureNonce,"pid access secret",timestamp,params));
         String result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/cdn/log",params),String.class);
         System.out.println(result);
         //System.out.println(result.getMessage());
