@@ -94,6 +94,8 @@ terminal_category STRING,   -- TV,IPHONE,IPAD,APH
   log_record_time STRING   --日志记录时间
 ```
 
+卡顿数据是选取操作类型是BUFFER，并且卡顿时长大于1s的记录。播放总数是选取操作类型为START-PLAY的播放条数
+
 #### Sign生成规则
 
 加密方式: `HmacSHA1`
