@@ -5,12 +5,22 @@
 联系方式: `songlijun@vcinema.cn` / `17611590700`
 
 
-## 获取内容列表 API
+## CDN LOG API
+
+### 获取获取CDN LOG下载地址 API
 
 #### API 地址及校验信息: 
 
 ```
 测试地址：http://dev.api.guoing.com:3505/cdn/log
+测试PID：TEST_PID
+测试PID access secret：TEST_ACCESS_SECRET
+```
+
+### 获取CDN buffer statistics下载地址
+
+```
+测试地址：http://dev.api.guoing.com:3505/cdn/buffer_statistics
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
 ```
@@ -95,6 +105,8 @@ terminal_category STRING,   -- TV,IPHONE,IPAD,APH
 ```
 
 卡顿数据是选取操作类型是BUFFER，并且卡顿时长大于1s的记录。播放总数是选取操作类型为START-PLAY的播放条数
+
+
 
 #### Sign生成规则
 
