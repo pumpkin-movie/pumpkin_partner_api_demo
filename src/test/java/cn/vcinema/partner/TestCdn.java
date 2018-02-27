@@ -58,4 +58,24 @@ public class TestCdn {
         //System.out.println(result.getMessage());
         //assertEquals("200",result.getStatusCode());
     }
+
+
+    @Test
+    public void getCdnBufferStatistics() throws Exception {
+        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+        long timestamp = System.currentTimeMillis();
+
+        LinkedMap params = new LinkedMap();
+        params.put("pid","s1");
+        params.put("timestamp", timestamp+"");
+        params.put("signature_nonce", signatureNonce);
+        params.put("format", PartnerInfo.format);
+        params.put("version", PartnerInfo.version);
+        params.put("log_date","20180202");
+        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,"/cdn/buffer_statistics",PartnerInfo.format,"s1",signatureNonce,"k4LtF4JWay6TG8bD",timestamp,params));
+        String result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/cdn/buffer_statistics",params),String.class);
+        System.out.println(result);
+        //System.out.println(result.getMessage());
+        //assertEquals("200",result.getStatusCode());
+    }
 }

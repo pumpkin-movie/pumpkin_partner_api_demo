@@ -59,6 +59,7 @@ public class TestMovie {
         params.put("version", PartnerInfo.version);
         params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,PartnerInfo.movie_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params));
         PayResponseBean result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync",params),PayResponseBean.class);
+        System.out.println(result.getMessage());
         assertEquals("200",result.getStatusCode());
     }
 

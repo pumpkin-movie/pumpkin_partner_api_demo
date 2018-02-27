@@ -1,7 +1,7 @@
 language: java
 jdk:
-- oraclejdk8
-branches:
-  only:
-  - develop
-  - master
+  - oraclejdk8
+
+notifications:
+  email:
+    - zhuangxulin@vcinema.cn
