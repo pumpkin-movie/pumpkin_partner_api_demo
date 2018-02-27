@@ -13,6 +13,7 @@
 测试地址：http://dev.api.guoing.com:3505/pay/pay_order
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
+测试PRODUCT ID: TEST_PUMPKIN_PRODUCT_ID
 ```
 
 请联系后获取详细内容
@@ -21,6 +22,7 @@
 正式接口地址：
 PID：
 PID access secret:
+PRODUCT ID: 
 ```
 
 
@@ -89,3 +91,5 @@ PID access secret:
 加密方式: `HmacSHA1`
 
 详情查看 [TestPay.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestPay.java) 文件中`payOrderSuccessful`方法
+
+
