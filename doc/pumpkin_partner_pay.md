@@ -10,7 +10,7 @@
 #### API 地址及校验信息: 
 
 ```
-测试地址：http://dev.api.guoing.com:3505/cdn/log
+测试地址：http://dev.api.guoing.com:3505/pay/pay_order
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
 ```
