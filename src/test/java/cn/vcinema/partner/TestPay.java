@@ -171,20 +171,36 @@ public class TestPay {
         long timestamp = System.currentTimeMillis();
 
         Map<String,String> params = new HashMap<>();
-        params.put("product_type",PartnerInfo.productType);
         params.put("version",PartnerInfo.version);
+
+        params.put("product_id","PUMPKIN_PRODUCT_ID_FULU");
+        params.put("account","17611590700");
+        params.put("amount","1");
+        params.put("shop","102220");
+        params.put("order_number","2018020712492812540");
 
         List<NameValuePair> parameter = new ArrayList<>();
         parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
-        parameter.add(new BasicNameValuePair("product_type", PartnerInfo.productType));
         parameter.add(new BasicNameValuePair("timestamp", timestamp+""));
         parameter.add(new BasicNameValuePair("signature_nonce", signatureNonce));
         parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
         parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
+
+        parameter.add(new BasicNameValuePair("product_id","PUMPKIN_PRODUCT_ID_FULU"));
+        parameter.add(new BasicNameValuePair("account","17611590700"));
+        parameter.add(new BasicNameValuePair("amount","1"));
+        parameter.add(new BasicNameValuePair("shop","102220"));
+        parameter.add(new BasicNameValuePair("order_number","2018020712492812540"));
+
+
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.pay_order_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
-        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.pay_order_action,parameter),PayResponseBean.class);
+
+
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://127.0.0.1:3505"+PartnerInfo.pay_order_action,parameter),PayResponseBean.class);
+        System.out.println(result);
         assertEquals("200",result.getStatusCode());
     }
 
 
 }
+

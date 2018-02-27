@@ -51,9 +51,9 @@ public class TestCdn {
         params.put("signature_nonce", signatureNonce);
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
-        params.put("log_date","20180201");
-        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,"/cdn/log",PartnerInfo.format,"pid",signatureNonce,"pid access secret",timestamp,params));
-        String result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/cdn/log",params),String.class);
+        params.put("log_date","20180222");
+        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,"/cdn/buffer_statistics",PartnerInfo.format,"pid",signatureNonce,"pid access secret",timestamp,params));
+        String result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/cdn/buffer_statistics",params),String.class);
         System.out.println(result);
         //System.out.println(result.getMessage());
         //assertEquals("200",result.getStatusCode());
