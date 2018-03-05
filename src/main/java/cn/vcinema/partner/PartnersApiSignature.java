@@ -126,7 +126,8 @@ public class PartnersApiSignature {
         signedData.append(SEPARATOR);
         signedData.append(percentEncode(canonicalizedQueryString));
         String stringToSign = signedData.toString();
-
+//
+//        stringToSign = "POST%26%2f%26account%3d18502083318%26action%3d%252fpay%252fpay_order%26amount%3d1%26format%3dJSON%26order_number%3d100014%26pid%3dTEST_PID%26product_id%3dTEST_PUMPKIN_PRODUCT_ID%26shop%3dpumpkin_film%26signature_nonce%3d8396d7c8019e4ce5a1516080ccbfd6%26timestamp%3d1519983480%26version%3dv1";
         // Step 3: sign
         SecretKey key = new SecretKeySpec((accessSecret + SEPARATOR).getBytes(ENCODE_TYPE), SignatureMethod.HMAC_SHA1);
         Mac mac = Mac.getInstance("HmacSHA1");

@@ -33,6 +33,7 @@ public class PartnerInfo {
     final static String pay_statistics_action = "/pay/redeem_code_statistics";
     final static String movie_action = "/movie/sync";
     final static String pay_order_action = "/pay/pay_order";
+    final static String get_order_action = "/pay/get_order";
     final static String httpPostMethod = "POST";
     final static String httpGetMethod = "GET";
     final static String pid = "TEST_PID";

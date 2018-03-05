@@ -174,10 +174,10 @@ public class TestPay {
         params.put("version",PartnerInfo.version);
 
         params.put("product_id","TEST_PUMPKIN_PRODUCT_ID");
-        params.put("account","17611590700");
+        params.put("account","18502083318");
         params.put("amount","1");
-        params.put("shop","102220");
-        params.put("order_number","2018020712492812520");
+        params.put("shop","pumpkin_film");
+        params.put("order_number","100014");
 
         List<NameValuePair> parameter = new ArrayList<>();
         parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
@@ -187,10 +187,10 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
 
         parameter.add(new BasicNameValuePair("product_id","TEST_PUMPKIN_PRODUCT_ID"));
-        parameter.add(new BasicNameValuePair("account","17611590700"));
+        parameter.add(new BasicNameValuePair("account","18502083318"));
         parameter.add(new BasicNameValuePair("amount","1"));
-        parameter.add(new BasicNameValuePair("shop","102220"));
-        parameter.add(new BasicNameValuePair("order_number","2018020712492812520"));
+        parameter.add(new BasicNameValuePair("shop","pumpkin_film"));
+        parameter.add(new BasicNameValuePair("order_number","100014"));
 
 
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.pay_order_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
@@ -200,6 +200,43 @@ public class TestPay {
         System.out.println(result);
         assertEquals("200",result.getStatusCode());
     }
+
+
+    /**
+     * 成功创建一个订单测试
+     *
+     * @throws Exception
+     */
+    @Test
+    public void getOrder() throws Exception {
+        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+        long timestamp = System.currentTimeMillis();
+
+        Map<String,String> params = new HashMap<>();
+        params.put("version",PartnerInfo.version);
+
+        params.put("shop","pumpkin_film");
+        params.put("order_number","100014");
+
+        List<NameValuePair> parameter = new ArrayList<>();
+        parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
+        parameter.add(new BasicNameValuePair("timestamp", timestamp+""));
+        parameter.add(new BasicNameValuePair("signature_nonce", signatureNonce));
+        parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
+        parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
+
+        parameter.add(new BasicNameValuePair("shop","pumpkin_film"));
+        parameter.add(new BasicNameValuePair("order_number","100014"));
+
+
+        parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.get_order_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
+
+
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.get_order_action,parameter),PayResponseBean.class);
+        System.out.println(result);
+        assertEquals("200",result.getStatusCode());
+    }
+
 
 
 }
