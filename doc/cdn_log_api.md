@@ -1,8 +1,8 @@
 # 南瓜电影 CDN Log API
 
-编写者: 宋立君 
+编写者: 王永 
 
-联系方式: `songlijun@vcinema.cn` / `17611590700`
+联系方式: `wangyong@vcinema.cn`
 
 
 ## CDN LOG API
