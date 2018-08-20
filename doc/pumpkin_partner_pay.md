@@ -115,7 +115,7 @@ PRODUCT ID:
   3  | timestamp | long   | 时间戳
   4  | signature_nonce  | string | 随机数
   5  | format    | string |  返回类型 标准参数：JSON
-  6  | access_secret | string | sign 签名，加密方式请查看DEMO
+  6  | sign | string | sign 签名，加密方式请查看DEMO
   7  | shop | integer | 第三方标识
   8  | order_number | string | 第三方订单号
 
