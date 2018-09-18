@@ -12,4 +12,4 @@ Develop Branch [![Build Status](https://travis-ci.org/pumpkin-movie/pumpkin_part
 
 [南瓜电影 直充 API 文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/pumpkin_partner_pay.md)
 
-[南瓜电影 运营商直充 API 文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/pumpkin_partner_operator_pay.md)
+[南瓜电影 运营商订购 API 文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/pumpkin_partner_operator_pay.md)
