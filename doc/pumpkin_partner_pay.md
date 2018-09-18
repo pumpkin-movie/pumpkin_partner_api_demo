@@ -41,7 +41,7 @@ PRODUCT ID:
   7  | product_id | string | 商品编码 
   8  | account | string | 充值账号(手机号)
   9  | amount | integer | 充值数量
-  10  | shop | integer | 第三方标识
+  10  | shop | string | 第三方标识
   11  | order_number | string | 第三方订单号
 
 
@@ -116,7 +116,7 @@ PRODUCT ID:
   4  | signature_nonce  | string | 随机数
   5  | format    | string |  返回类型 标准参数：JSON
   6  | sign | string | sign 签名，加密方式请查看DEMO
-  7  | shop | integer | 第三方标识
+  7  | shop | string | 第三方标识
   8  | order_number | string | 第三方订单号
 
 #### 返回信息:
