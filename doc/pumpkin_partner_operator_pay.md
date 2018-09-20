@@ -50,42 +50,36 @@ PRODUCT ID:
 
 #### 返回信息:
 
-`HTTP Status Code`: `200`
+`HTTP Status Code`: 0
 
 ##### 成功
 
 ```
 {
-  "date": "2018-02-22 19:06:38",
-  "status_code": 200,
-  "message": "充值成功",
-  "content": "",
-  "timestamp": "1519297598084"
+  "resultCode ": 0,
+  "message": "订购/退订成功",
+  "recordSequenceID": "10001410001"
 }
+
 ```
 
 ##### 失败
 
 ```
 {
-  "date": "2018-02-22 19:06:38",
-  "status_code": 17003,
-  "message": "订单号重复",
-  "content": "",
-  "timestamp": "1519297598084"
+  "resultCode ": 1,
+  "message": "订购/退订失败",
+  "recordSequenceID": "10001410001"
 }
+
 ```
 
 #### 返回状态码定义
 
 | 状态码  | 信息  |  
 | :------------ |:---------------:| 
-| 200      | 充值成功 | 
-| 17003      | 订单号重复|
-| 17005      | 该IP禁止访问        |
-| 17006      | sign不正确        |
-| 17007     | 参数错误        |
-| 17008      | 商品不存在或无法购买        |
+| 0      | 订购/退订成功 | 
+| 1      | 订购/退订失败|
 
 
 ## 查询订单 API
@@ -170,4 +164,4 @@ PRODUCT ID:
 
 加密方式: `HmacSHA1`
 
-详情查看 [TestPay.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestPay.java) 文件中`payOrderSuccessful`方法
+详情查看 [TestPay.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestPay.java) 文件中`payOrderOperatorSuccessful`方法
