@@ -1,22 +1,22 @@
-# 南瓜电影 直充 API
+# 南瓜电影 运营商订购 API
 
-编写者: 宋立君/王永 
+编写者: 王永 
 
 联系方式: `wangyong@vcinema.cn` / `13466536112`
 
 
-## 直充 API
+## 运营商订购 API
 
 #### API 地址及校验信息: 
 
 ```
-测试地址：http://dev.api.guoing.com:3505/pay/pay_order
+测试地址：http://dev.api.guoing.com:3505/pay/pay_order_operator
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
 测试PRODUCT ID: TEST_PUMPKIN_PRODUCT_ID
 ```
 
-请联系后获取详细内容
+正式环境请联系后获取详细内容
 
 ```
 正式接口地址：
@@ -34,57 +34,52 @@ PRODUCT ID:
 ---- | ------- | ------ | -----
   1  |  pid    | string  | 合作方ID
   2  | version | string | 接口版本，默认v1
-  3  | timestamp | long   | 时间戳
-  4  | signature_nonce  | string | 随机数
+  3  | timeStamp | long   | 时间戳
+  4  | signatureNonce  | string | 随机数
   5  | format    | string |  返回类型 标准参数：JSON
   6  | sign | string | sign 签名，加密方式请查看DEMO
-  7  | product_id | string | 商品编码 
+  7  | productId | string | 商品编码 
   8  | account | string | 充值账号(手机号)
   9  | amount | integer | 充值数量
   10  | shop | string | 第三方标识
-  11  | order_number | string | 第三方订单号
+  11  | orderNumber | string | 第三方订单号
+  12  | updateType | string | 操作类型： 1,订购; 2,退定;
 
 
 
 
 #### 返回信息:
 
-`HTTP Status Code`: `200`
+`HTTP Status Code`: 0
 
 ##### 成功
 
 ```
 {
-  "date": "2018-02-22 19:06:38",
-  "status_code": 200,
-  "message": "充值成功",
-  "content": "",
-  "timestamp": "1519297598084"
+  "resultCode ": 0,
+  "message": "订购/退订成功",
+  "recordSequenceID": "10001410001"
 }
+
 ```
 
 ##### 失败
 
 ```
 {
-  "date": "2018-02-22 19:06:38",
-  "status_code": 17003,
-  "message": "订单号重复",
-  "content": "",
-  "timestamp": "1519297598084"
+  "resultCode ": 1,
+  "message": "订购/退订失败",
+  "recordSequenceID": "10001410001"
 }
+
 ```
 
 #### 返回状态码定义
 
 | 状态码  | 信息  |  
 | :------------ |:---------------:| 
-| 200      | 充值成功 | 
-| 17003      | 订单号重复|
-| 17005      | 该IP禁止访问        |
-| 17006      | sign不正确        |
-| 17007     | 参数错误        |
-| 17008      | 商品不存在或无法购买        |
+| 0      | 订购/退订成功 | 
+| 1      | 订购/退订失败|
 
 
 ## 查询订单 API
@@ -169,4 +164,4 @@ PRODUCT ID:
 
 加密方式: `HmacSHA1`
 
-详情查看 [TestPay.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestPay.java) 文件中`payOrderSuccessful`方法
+详情查看 [TestPay.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestPay.java) 文件中`payOrderOperatorSuccessful`方法
