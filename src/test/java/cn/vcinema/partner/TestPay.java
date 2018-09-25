@@ -287,7 +287,44 @@ public class TestPay {
         assertEquals("200",result.getStatusCode());
     }
 
+    /**
+     * 请求发送余额不足提醒短信的测试
+     *
+     * @throws Exception
+     */
+    @Test
+    public void sendInsufficientBalanceSMSSuccessful() throws Exception {
+        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+        long timestamp = System.currentTimeMillis();
 
+        String account = "13466536112";
+        String shop = "testShop";
+
+
+        Map<String,String> params = new HashMap<>();
+        params.put("version",PartnerInfo.version);
+        params.put("pid", PartnerInfo.pid);
+        params.put("account",account);
+        params.put("shop",shop);
+
+        List<NameValuePair> parameter = new ArrayList<>();
+        parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
+        parameter.add(new BasicNameValuePair("timeStamp", timestamp+""));
+        parameter.add(new BasicNameValuePair("signatureNonce", signatureNonce));
+        parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
+        parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
+
+        parameter.add(new BasicNameValuePair("account",account));
+        parameter.add(new BasicNameValuePair("shop",shop));
+
+        parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.send_insufficient_balance_msg_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
+
+        SendSMSRepEntity result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.send_insufficient_balance_msg_action,parameter),SendSMSRepEntity.class);
+
+        System.out.println(result.getResultCode());
+        System.out.println(result.getMessage());
+        assertEquals("0",result.getResultCode().toString());
+    }
 
 }
 
