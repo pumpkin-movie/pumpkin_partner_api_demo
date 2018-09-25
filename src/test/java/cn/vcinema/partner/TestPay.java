@@ -297,7 +297,7 @@ public class TestPay {
         String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
 
-        String account = "13466536112";
+        String account = ""; //TODO to init the account by phone number
         String shop = "testShop";
 
 
