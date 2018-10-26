@@ -304,7 +304,6 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("updateType",updateType));
 
         HNUnicomRspEntity result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.pay_order_shdx_action,parameter),HNUnicomRspEntity.class);
-//        HNUnicomRspEntity result = JSON.parseObject(HttpClientUtil.doPost("http://localhost:3505"+PartnerInfo.pay_order_shdx_action,parameter),HNUnicomRspEntity.class);
 
         System.out.println(result.getResultCode());
         System.out.println(result.getMessage());
@@ -380,7 +379,6 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.send_insufficient_balance_msg_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
 
         SendSMSRepEntity result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.send_insufficient_balance_msg_action,parameter),SendSMSRepEntity.class);
-//        SendSMSRepEntity result = JSON.parseObject(HttpClientUtil.doPost("http://localhost:3505"+PartnerInfo.send_insufficient_balance_msg_action,parameter),SendSMSRepEntity.class);
 
         System.out.println(result.getResultCode());
         System.out.println(result.getMessage());
