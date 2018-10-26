@@ -2,7 +2,7 @@
 
 编写者: 宋立君 
 
-联系方式: `songlijun@vcinema.cn` / `17611590700`
+联系方式: `wangyong@vcinema.cn` / `13466536112`
 
 
 ## 获取内容列表 API
