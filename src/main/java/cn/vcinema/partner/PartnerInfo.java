@@ -34,6 +34,7 @@ public class PartnerInfo {
     final static String movie_action = "/movie/sync";
     final static String pay_order_action = "/pay/pay_order";
     final static String pay_order_operator_action = "/pay/pay_order_operator";
+    final static String pay_order_shdx_action = "/pay/pay_order_shdx";
     final static String send_insufficient_balance_msg_action = "/send/insufficientBalance";
     final static String get_order_action = "/pay/get_order";
     final static String httpPostMethod = "POST";

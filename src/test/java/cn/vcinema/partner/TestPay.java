@@ -170,14 +170,19 @@ public class TestPay {
         String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
 
+        String order_number = "200014100012";
+        String productId = "TEST_PUMPKIN_PRODUCT_ID";
+        String account = "13323250325";
+        String amount = "1";
+        String shop = "testShop";
+
         Map<String,String> params = new HashMap<>();
         params.put("version",PartnerInfo.version);
-
-        params.put("product_id","TEST_PUMPKIN_PRODUCT_ID");
-        params.put("account","18502083318");
-        params.put("amount","1");
-        params.put("shop","pumpkin_film");
-        params.put("order_number","100014");
+        params.put("product_id",productId);
+        params.put("account",account);
+        params.put("amount",amount);
+        params.put("shop",shop);
+        params.put("order_number",order_number);
 
         List<NameValuePair> parameter = new ArrayList<>();
         parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
@@ -186,14 +191,21 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
         parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
 
-        parameter.add(new BasicNameValuePair("product_id","TEST_PUMPKIN_PRODUCT_ID"));
-        parameter.add(new BasicNameValuePair("account","18502083318"));
-        parameter.add(new BasicNameValuePair("amount","1"));
-        parameter.add(new BasicNameValuePair("shop","pumpkin_film"));
-        parameter.add(new BasicNameValuePair("order_number","100014"));
+        parameter.add(new BasicNameValuePair("product_id",productId));
+        parameter.add(new BasicNameValuePair("account",account));
+        parameter.add(new BasicNameValuePair("amount",amount));
+        parameter.add(new BasicNameValuePair("shop",shop));
+        parameter.add(new BasicNameValuePair("order_number",order_number));
 
 
-        parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.pay_order_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
+        parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,
+                PartnerInfo.pay_order_action,
+                PartnerInfo.format,
+                PartnerInfo.pid,
+                signatureNonce,
+                PartnerInfo.accessSecret,
+                timestamp,
+                params)));
 
 
         PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.pay_order_action,parameter),PayResponseBean.class);
@@ -211,9 +223,9 @@ public class TestPay {
         String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
 
-        String order_number = "10001410001";
+        String order_number = "100014100011";
         String productId = "TEST_PUMPKIN_PRODUCT_ID";
-        String account = "13466536112";
+        String account = "13323250325";
         String amount = "1";
         String shop = "testShop";
         String updateType = "1";
@@ -245,6 +257,54 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("updateType",updateType));
 
         HNUnicomRspEntity result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.pay_order_operator_action,parameter),HNUnicomRspEntity.class);
+
+        System.out.println(result.getResultCode());
+        System.out.println(result.getMessage());
+        assertEquals("0",result.getResultCode().toString());
+    }
+
+
+    @Test
+    public void payOrderForSHDXSuccessful() throws Exception {
+        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+        long timestamp = System.currentTimeMillis();
+
+        String order_number = "1000141000018";
+        String productId = "ng-3rd-m-nm12";
+//        String account = "13323250325";
+        String account = "18017990527";
+        String amount = "1";
+        String shop = "testShop";
+        String updateType = "1";//操作类型： 1,订购; 2,退定;
+
+
+        Map<String,String> params = new HashMap<>();
+        params.put("version",PartnerInfo.version);
+        params.put("pid", PartnerInfo.pid);
+        params.put("product_id",productId);
+        params.put("account",account);
+        params.put("amount",amount);
+        params.put("shop",shop);
+        params.put("order_number",order_number);
+
+        List<NameValuePair> parameter = new ArrayList<>();
+        parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
+        parameter.add(new BasicNameValuePair("timeStamp", timestamp+""));
+        parameter.add(new BasicNameValuePair("signatureNonce", signatureNonce));
+        parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
+        parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
+
+        parameter.add(new BasicNameValuePair("productId",productId));
+        parameter.add(new BasicNameValuePair("account",account));
+        parameter.add(new BasicNameValuePair("amount",amount));
+        parameter.add(new BasicNameValuePair("shop",shop));
+        parameter.add(new BasicNameValuePair("orderNumber",order_number));
+
+        parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.pay_order_shdx_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
+        parameter.add(new BasicNameValuePair("updateType",updateType));
+
+        HNUnicomRspEntity result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.pay_order_shdx_action,parameter),HNUnicomRspEntity.class);
+//        HNUnicomRspEntity result = JSON.parseObject(HttpClientUtil.doPost("http://localhost:3505"+PartnerInfo.pay_order_shdx_action,parameter),HNUnicomRspEntity.class);
 
         System.out.println(result.getResultCode());
         System.out.println(result.getMessage());
@@ -297,7 +357,7 @@ public class TestPay {
         String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
 
-        String account = ""; //TODO to init the account by phone number
+        String account = "13466536112"; //TODO to init the account by phone number
         String shop = "testShop";
 
 
@@ -320,6 +380,7 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.send_insufficient_balance_msg_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
 
         SendSMSRepEntity result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.send_insufficient_balance_msg_action,parameter),SendSMSRepEntity.class);
+//        SendSMSRepEntity result = JSON.parseObject(HttpClientUtil.doPost("http://localhost:3505"+PartnerInfo.send_insufficient_balance_msg_action,parameter),SendSMSRepEntity.class);
 
         System.out.println(result.getResultCode());
         System.out.println(result.getMessage());
