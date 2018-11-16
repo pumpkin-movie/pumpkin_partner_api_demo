@@ -39,7 +39,7 @@ PID access secret:
   7  | format    | string |  返回类型 标准参数：JSON | N
   8  | sign | string | sign 签名，加密方式请查看DEMO | N
   9  | pay_type | string | 支付方式：ALIPAY,WXPAY  | Y
-  10  | order_status | integer | 订单状态：1:处理中 2：处理成功 | Y
+  10  | order_status | integer | 订单状态：1:处理中 2：处理成功 | N
   11  | pay_success_time | string | 支付成功时间，格式：yyyy-MM-dd HH:mm:ss  | N
   12  | start_time | string | 订单开始时间，格式：yyyy-MM-dd HH:mm:ss  | Y
   13  | end_time | string | 订单结束时间，格式：yyyy-MM-dd HH:mm:ss  | Y
