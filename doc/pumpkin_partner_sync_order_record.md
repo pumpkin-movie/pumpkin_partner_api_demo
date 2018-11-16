@@ -12,9 +12,7 @@
 请联系后获取详细内容
 
 ```
-测试地址：
-测试pid：
-测试PID access secret：
+测试地址：http://dev.api.guoing.com:3505/order/sync
 ```
 
 ```
@@ -102,4 +100,5 @@ PID access secret:
 #### Sign生成规则,以及测试 demo
 加密方式: HmacSHA1
 
-详情查看 demo
+详情查看 [TestPay.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestOrder.java)文件中`orderSyncSuccessful`方法
+
