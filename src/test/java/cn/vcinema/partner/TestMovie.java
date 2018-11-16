@@ -51,13 +51,16 @@ public class TestMovie {
         String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
 
+        String pid = PartnerInfo.pid;
+        String accessSecret = PartnerInfo.accessSecret;
+
         LinkedMap params = new LinkedMap();
-        params.put("pid",PartnerInfo.pid);
+        params.put("pid", pid);
         params.put("timestamp", timestamp+"");
         params.put("signature_nonce", signatureNonce);
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
-        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,PartnerInfo.movie_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params));
+        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,PartnerInfo.movie_action,PartnerInfo.format,pid,signatureNonce,accessSecret,timestamp,params));
         ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync",params),ResponseEntity.class);
         System.out.println(result);
         assertEquals(200,result.getStatusCode());
