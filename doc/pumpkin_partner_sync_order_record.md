@@ -44,7 +44,7 @@ PID access secret:
   12  | start_time | string | 订单开始时间，格式：yyyy-MM-dd HH:mm:ss  | Y
   13  | end_time | string | 订单结束时间，格式：yyyy-MM-dd HH:mm:ss  | Y
   14  | channel | string | 渠道号 | Y
-  15  | deveice_id | string | 设备编号  | Y
+  15  | device_id | string | 设备编号  | Y
   16  | user_id | string | 用户编号 | Y
   17  | platform | string | 平台号 | Y
   18  | app_version | string | 接口版本，默认v1 | Y
