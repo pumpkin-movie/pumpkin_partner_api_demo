@@ -44,7 +44,7 @@ PID access secret:
   14  | channel | string | 渠道号 | Y
   15  | device_id | string | 设备编号  | Y
   16  | user_id | string | 用户编号 | Y
-  17  | platform | string | 平台:1:android手机 2:android pad 4:电视 8:苹果手机 16：ipad | Y
+  17  | platform | integer | 平台:1:android手机 2:android pad 4:电视 8:苹果手机 16：ipad | Y
   18  | app_version | string | 接口版本，默认v1 | Y
   19  | ip | string | ip地址 | Y
   
