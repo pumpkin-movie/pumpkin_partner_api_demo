@@ -38,10 +38,19 @@ public class TestOrder {
         String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
 
-        String order_no = "200014100015";
+        String order_no = "200014100016";
         Integer productPrice = 1000;
         String paySuccessTime = "2018-11-16 22:06:21";
         String payOrderAction = "/order/sync";
+        String product_id = "test_product_id";
+        String pay_type = "ALIPAY";
+        String startTime = "2018-11-16 22:06:21";
+        String endTime = "2018-12-16 22:06:21";
+        String channel = "test_channel";
+        String deviceId = "test_device_id";
+        String userId = "test_userId";
+        Integer platform = 1;
+        String ip = "test_ip";
 
         Map<String,String> params = new HashMap<>();
         params.put("version",PartnerInfo.version);
@@ -59,14 +68,22 @@ public class TestOrder {
         List<NameValuePair> parameter = new ArrayList<>();
         parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
         parameter.add(new BasicNameValuePair("order_no",order_no));
+        parameter.add(new BasicNameValuePair("product_id",product_id));
         parameter.add(new BasicNameValuePair("product_price",productPrice +""));
         parameter.add(new BasicNameValuePair("timestamp", timestamp+""));
         parameter.add(new BasicNameValuePair("signature_nonce", signatureNonce));
         parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
-        parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
-        parameter.add(new BasicNameValuePair("pay_success_time", paySuccessTime));
+        parameter.add(new BasicNameValuePair("pay_type",pay_type));
         parameter.add(new BasicNameValuePair("order_status", "2"));
-
+        parameter.add(new BasicNameValuePair("pay_success_time", paySuccessTime));
+        parameter.add(new BasicNameValuePair("start_time",startTime));
+        parameter.add(new BasicNameValuePair("end_time",endTime));
+        parameter.add(new BasicNameValuePair("channel",channel));
+        parameter.add(new BasicNameValuePair("device_id",deviceId));
+        parameter.add(new BasicNameValuePair("user_id",userId));
+        parameter.add(new BasicNameValuePair("platform",platform +""));
+        parameter.add(new BasicNameValuePair("app_version", PartnerInfo.version));
+        parameter.add(new BasicNameValuePair("ip",ip));
         parameter.add(new BasicNameValuePair("sign", sign));
 
 
