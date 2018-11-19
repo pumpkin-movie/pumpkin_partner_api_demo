@@ -12,9 +12,7 @@
 请联系后获取详细内容
 
 ```
-测试地址：
-测试pid：
-测试PID access secret：
+测试地址：http://dev.api.guoing.com:3505/order/sync
 ```
 
 ```
@@ -38,7 +36,7 @@ PID access secret:
   6  | signature_nonce  | string | 随机数 | N
   7  | format    | string |  返回类型 标准参数：JSON | N
   8  | sign | string | sign 签名，加密方式请查看DEMO | N
-  9  | pay_type | string | 支付方式：ALIPAY,WXPAY  | Y
+  9  | pay_type | string | 支付方式：ALIPAY（支付宝），WXPAY（微信），unionpay（银联），onaccount（酒店房账）  | Y
   10  | order_status | integer | 订单状态：1:处理中 2：处理成功 | N
   11  | pay_success_time | string | 支付成功时间，格式：yyyy-MM-dd HH:mm:ss  | N
   12  | start_time | string | 订单开始时间，格式：yyyy-MM-dd HH:mm:ss  | Y
@@ -46,7 +44,7 @@ PID access secret:
   14  | channel | string | 渠道号 | Y
   15  | device_id | string | 设备编号  | Y
   16  | user_id | string | 用户编号 | Y
-  17  | platform | string | 平台号 | Y
+  17  | platform | integer | 平台:1:android手机 2:android pad 4:电视 8:苹果手机 16：ipad | Y
   18  | app_version | string | 接口版本，默认v1 | Y
   19  | ip | string | ip地址 | Y
   
@@ -102,4 +100,5 @@ PID access secret:
 #### Sign生成规则,以及测试 demo
 加密方式: HmacSHA1
 
-详情查看 demo
+详情查看 [TestPay.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestOrder.java)文件中`orderSyncSuccessful`方法
+
