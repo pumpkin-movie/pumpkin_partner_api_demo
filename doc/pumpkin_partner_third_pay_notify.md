@@ -12,7 +12,7 @@
 请联系后获取详细内容
 
 ```
-测试地址：http://dev.doras.guoing.com:3040/third_pay/notify/pay
+测试地址：http://dev.doras.guoing.com:80/pay/third/callback
 ```
 
 ```
