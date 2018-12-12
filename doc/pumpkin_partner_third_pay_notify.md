@@ -34,7 +34,7 @@ PID access secret:
   4  | signatureNonce  | string | 随机数 | N
   5  | format    | string |  返回类型 标准参数：JSON | N
   6  | timestamp | long   | 时间戳 | N
-  7  | orderStatus | string | 订单支付状态：2-支付成功，3-支付失败  | Y
+  7  | orderStatus | string | 订单支付状态：2-支付成功，3-支付失败  | N
   8  | productPrice  | string | 产品价格，单位分 | N
   9  | payType  | string | 支付类型（接口方分配） | N
   10  | notifyType  | string | 通知类型（接口方分配） | N
