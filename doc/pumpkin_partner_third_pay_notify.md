@@ -28,16 +28,16 @@ PID access secret:
 
 序号  | 字段名称 |   类型   | 备注  | 是否可空
 ---- | ------- | ------ | ----- | -----
-  1  | tpid    | string  | 合作方ID | N
-  2  | orderNumber | string | 南瓜电影订单号 | N
-  3  | thirdOrderNumber | string | 第三方订单号 | N
-  4  | signatureNonce  | string | 随机数 | N
+  1  | tp_id    | string  | 合作方ID | N
+  2  | order_number | string | 南瓜电影订单号 | N
+  3  | third_order_number | string | 第三方订单号 | N
+  4  | signature_nonce  | string | 随机数 | N
   5  | format    | string |  返回类型 标准参数：JSON | N
   6  | timestamp | long   | 时间戳 | N
-  7  | orderStatus | string | 订单支付状态：2-支付成功，3-支付失败  | N
-  8  | productPrice  | string | 产品价格，单位分 | N
-  9  | payType  | string | 支付类型（接口方分配） | N
-  10  | notifyType  | string | 通知类型（接口方分配） | N
+  7  | order_status | string | 订单支付状态：2-支付成功，3-支付失败  | N
+  8  | product_price  | string | 产品价格，单位分 | N
+  9  | pay_type  | string | 支付类型（接口方分配） | N
+  10  | notify_type  | string | 通知类型（接口方分配） | N
   11  | sign | string | sign 签名，加密方式请查看DEMO | N
   
 
