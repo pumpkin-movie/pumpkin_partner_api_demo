@@ -11,18 +11,20 @@
 
 ```
 测试地址：http://dev.api.guoing.com:3505/pay/pay_order
-测试PID：TEST_PID
-测试PID access secret：TEST_ACCESS_SECRET
-测试PRODUCT ID: TEST_PUMPKIN_PRODUCT_ID
+测试pid：TEST_PID
+测试pid access secret：TEST_ACCESS_SECRET
+测试product_id: TEST_PUMPKIN_PRODUCT_ID
+测试shop：standard
 ```
 
 请联系后获取详细内容
 
 ```
 正式接口地址：
-PID：
-PID access secret:
-PRODUCT ID: 
+pid：
+pid access secret:
+product_id: 
+shop:
 ```
 
 
@@ -41,7 +43,7 @@ PRODUCT ID:
   7  | product_id | string | 商品编码 
   8  | account | string | 充值账号(手机号)
   9  | amount | integer | 充值数量
-  10  | shop | string | 第三方标识
+  10  | shop | string | 第三方标识（默认standard）
   11  | order_number | string | 第三方订单号
   12  | original_price | string | cp提供的原价
   13  | settle_price | string | 结算单价
@@ -93,17 +95,16 @@ PRODUCT ID:
 
 ```
 测试地址：http://dev.api.guoing.com:3505/pay/get_order
-测试PID：TEST_PID
-测试PID access secret：TEST_ACCESS_SECRET
+测试pid：TEST_PID
+测试pid access secret：TEST_ACCESS_SECRET
 ```
 
 请联系后获取详细内容
 
 ```
 正式接口地址：
-PID：
-PID access secret:
-PRODUCT ID: 
+pid：
+pid access secret:
 ```
 
 #### 请求方式: `POST`
