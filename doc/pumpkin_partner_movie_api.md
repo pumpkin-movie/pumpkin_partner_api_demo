@@ -130,7 +130,7 @@ PID access secret:
   8  | movie_country  |   string | 电影国家
   9  | movie_language  |   string | 电影语言
   10  | movie_year  |   string | 电影年份
-  11 | movie_type  |   string | 电影类型1: 电影 2: 电视剧
+  11 | movie_type  |   string | 电影类型1: 电影 2: 电视剧 3：季播剧
   12  | movie_duration  |   string | 电影市场
-  13  | episode_num  |   string | 电影集数
+  13  | episode_num  |   string | 集数/季数（movie_type为2是集数，3是季数）
   14  | movie_image_list  |   list | 电影海报 [0]: 竖版海报 [1]: 横版海报
