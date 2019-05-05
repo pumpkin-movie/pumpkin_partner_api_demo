@@ -32,6 +32,7 @@ public class PartnerInfo {
     final static String pay_action = "/pay/redeem_code";
     final static String pay_statistics_action = "/pay/redeem_code_statistics";
     final static String movie_action = "/movie/sync";
+    final static String media_action = "/media/sync";
     final static String pay_order_action = "/pay/pay_order";
     final static String pay_order_operator_action = "/pay/pay_order_operator";
     final static String pay_order_shdx_action = "/pay/pay_order_shdx";
