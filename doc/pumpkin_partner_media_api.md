@@ -1,10 +1,8 @@
 # 南瓜电影 媒资同步 API
 
-编写者: 宋立君 
+编写者: 宋立君/韩张钞 
 
-联系人：王永
-
-联系方式: `wangyong@vcinema.cn` / `13466536112`
+联系方式: `hanzhangchao@vcinema.cn` / `15556927463`
 
 
 ## 获取内容列表 API
@@ -33,7 +31,7 @@ PID access secret:
 ---- | ------- | ------ | -----
   1  |  pid    | string  | 合作方ID
   2  | version | string | 接口版本，默认v1
-  3  | timestamp | long   | 时间戳
+  3  | timestamp | long   | 当前时间戳
   4  | signature_nonce  | string | 随机数
   5  | format    | string |  返回类型 标准参数：JSON
   6  | sign | string | sign 签名，加密方式请查看DEMO
@@ -110,8 +108,8 @@ PID access secret:
 序号  | 字段名称 |   类型   | 备注
 ---- | ------- | ------ | -----
   1  |  total_movie_number    | int  | 电影总数
-  2  | data_time | string | 内容生成时间
-  3  | data_timestamp |  long   | 内容生成时间戳
+  2  | data_generate_time | string | 内容生成时间
+  3  | data_generate_timestamp |  String   | 内容生成时间戳
   4  | mediaList  |  list | 内容列表
 
 根据内容生成时间,电影总数进行同步内容数据
@@ -130,7 +128,7 @@ PID access secret:
   8  | movie_country  |   string | 电影国家
   9  | movie_language  |   string | 电影语言
   10  | movie_year  |   string | 电影年份
-  11 | movie_type  |   string | 电影类型1: 电影 2: 电视剧 3：季播剧
+  11 | movie_type  |   string | 电影类型，1: 电影 2: 电视剧 3：季播剧
   12  | movie_duration  |   string | 电影时长
   13  | episode_num  |   string | 集数/季数（movie_type为2是集数，3是季数）
   14  | movie_image_list  |   list | 电影海报 [0]: 竖版海报 [1]: 横版海报
@@ -152,7 +150,7 @@ PID access secret:
   10  | movie_year  |  string | 电影年份
   11 | movie_type  |  string | 电影类型1: 电影 2: 电视剧 3：季播剧
   12  | movie_duration  |  string | 电影时长
-  13  | total_parts  |   string | 当季的总集数
+  13  | total_parts  |   int | 当季的总集数
   14  | season_parts | list | 当季全集
 
   ##### 集信息:
