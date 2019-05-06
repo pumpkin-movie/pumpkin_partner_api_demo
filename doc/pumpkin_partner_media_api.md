@@ -132,7 +132,7 @@ PID access secret:
   12  | movie_duration  |   string | 电影时长
   13  | episode_num  |   string | 集数/季数（movie_type为2是集数，3是季数）
   14  | movie_image_list  |   list | 电影海报 [0]: 竖版海报 [1]: 横版海报
-  15  | media_season | list | 该剧的全部季集合
+  15  | media_seasons | list | 该剧的全部季集合
 
   ##### 季信息:
 
