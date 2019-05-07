@@ -159,3 +159,5 @@ PID access secret:
 ---- | ------- | ------ | -----
   1  | movie_id | int  | 电影id
   2  | movie_number | string | 当前的集数
+
+  详情查看 [TestMovie.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestMovie.java) 文件中`getMediaInfoSuccessful`方法
