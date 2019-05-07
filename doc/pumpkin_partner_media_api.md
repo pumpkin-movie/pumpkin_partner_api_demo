@@ -49,8 +49,8 @@ PID access secret:
   "message": "获取成功",
   "content": {
     "total_movie_number": 533,
-    "data_time": "2018-01-29 15:01:30",
-    "data_timestamp": "1517276352692",
+    "data_generate_time": "2018-01-29 15:01:30",
+    "data_generate_timestamp": "1517276352692",
     "movies": [
         {
             "movie_country":"英国",
