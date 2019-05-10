@@ -111,7 +111,7 @@ public class TestMovie {
     @Test
     public void getMediaInfoBatchSuccessful () throws Exception{
         String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
-        /** 增量：此处以2019-05-09 13:00:00后更新的数据为例 **/
+        /** 增量：此处以2019-05-09 13:00:00为例，获取在此前半小时内更新的数据 **/
         long timestamp = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).parse("2019-05-09 13:00:00", new ParsePosition(0)).getTime();
 
         String pid = PartnerInfo.pid;
