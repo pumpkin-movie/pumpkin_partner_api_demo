@@ -35,6 +35,7 @@ PID access secret:
   4  | signature_nonce  | string | 随机数
   5  | format    | string |  返回类型 标准参数：JSON
   6  | sign | string | sign 签名，加密方式请查看DEMO
+  7  | mode | string | 选择接口模式, "full"为全量接口, "batch"为增量接口
 
 
 #### 返回信息:
@@ -83,7 +84,7 @@ PID access secret:
                         {"movie_number":"7","movie_id":"10769"}],
                     "movie_year":"2017",
                     "movie_alias":"未遗忘的事 第二季",
-                    "movie_type":"2"
+                    "movie_type":"3"
                     }],
             "movie_name_english":"Unforgotten",
             "movie_language":"英语",
@@ -92,7 +93,7 @@ PID access secret:
                 "http://movie.image.vcinema.com.cn/VVtPefbhBDW6NKAwfUN6RKky.png"],
             "movie_year":"2015",
             "movie_alias":"未遗忘的事",
-            "movie_type":"2"
+            "movie_type":"3"
         }]
     },
     "status_code": 200,
@@ -131,8 +132,9 @@ PID access secret:
   11 | movie_type  |   string | 电影类型，1: 电影 2: 电视剧 3：季播剧
   12  | movie_duration  |   string | 电影时长
   13  | episode_num  |   string | 集数/季数（movie_type为2是集数，3是季数）
-  14  | movie_image_list  |   list | 电影海报 [0]: 竖版海报 [1]: 横版海报
-  15  | media_seasons | list | 该剧的全部季集合
+  14  | vertical_pic  |   string | 竖版海报
+  15  | horizontal_pic  |   string | 横版海报
+  16  | media_seasons | list | 该剧的全部季集合
 
   ##### 季信息:
 
@@ -160,4 +162,6 @@ PID access secret:
   1  | movie_id | int  | 电影id
   2  | movie_number | string | 当前的集数
 
-  详情查看 [TestMovie.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestMovie.java) 文件中`getMediaInfoSuccessful`方法
+  全量接口详情查看 [TestMovie.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestMovie.java) 文件中`getMediaInfoSuccessful`方法
+
+  增量接口详情查看 [TestMovie.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestMovie.java) 文件中`getMediaInfoBatchSuccessful`方法
