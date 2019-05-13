@@ -38,13 +38,13 @@ PID access secret:
   7  | mode | string | 选择接口模式, "full"为全量接口, "batch"为增量接口
 
 
-#### 返回信息:
+### 返回信息:
 
 ##### 成功
 
 `HTTP Status Code` : `200`
 
-
+##### 响应示例
 ```
 {
   "message": "获取成功",
@@ -115,7 +115,7 @@ PID access secret:
 
 根据内容生成时间,电影总数进行同步内容数据
 
-##### 媒资信息:
+##### 媒资信息（media）:
 
 序号  | 字段名称 |   类型   | 备注
 ---- | ------- | ------ | -----
@@ -129,14 +129,14 @@ PID access secret:
   8  | movie_country  |   string | 电影国家
   9  | movie_language  |   string | 电影语言
   10  | movie_year  |   string | 电影年份
-  11 | movie_type  |   string | 电影类型，1: 电影 2: 电视剧 3：季播剧
-  12  | movie_duration  |   string | 电影时长
-  13  | episode_num  |   string | 集数/季数（movie_type为2是集数，3是季数）
-  14  | vertical_pic  |   string | 竖版海报
-  15  | horizontal_pic  |   string | 横版海报
-  16  | media_seasons | list | 该剧的全部季集合
+  11 | movie_type  |   string | 电影类型，1: 电影 3：季播剧
+  12  | episode_num  |   string | 集数/季数（movie_type为3是季数）
+  13  | vertical_pic  |   string | 竖版海报
+  14  | horizontal_pic  |   string | 横版海报
+  15  | media_seasons | list | 如果其是季播剧，则包含该剧的全部季集合（不为空）
+  16 | video | list | 如果其是电影，则包含视频（不为空）
 
-  ##### 季信息:
+  ##### 季信息（season）:
 
 序号  | 字段名称 |   类型   | 备注
 ---- | ------- | ------ | -----
@@ -150,17 +150,42 @@ PID access secret:
   8  | movie_country  |  string | 电影国家
   9  | movie_language  |  string | 电影语言
   10  | movie_year  |  string | 电影年份
-  11 | movie_type  |  string | 电影类型1: 电影 2: 电视剧 3：季播剧
-  12  | movie_duration  |  string | 电影时长
-  13  | total_parts  |   int | 当季的总集数
-  14  | season_parts | list | 当季全集
+  11 | movie_type  |  string | 电影类型1: 电影 3：季播剧
+  12  | total_parts  |   int | 当季的总集数
+  13  | season_parts | list | 当季全集
 
-  ##### 集信息:
+  ##### 集信息（part）:
 
 序号  | 字段名称 |   类型   | 备注
 ---- | ------- | ------ | -----
   1  | movie_id | int  | 电影id
   2  | movie_number | string | 当前的集数
+  
+  注：剧 - 季 - 集三者同名字段相互独立，值不同
+  
+  ##### 视频信息（video）:
+  序号  | 字段名称 |   类型   | 备注
+  ---- | ------- | ------ | -----
+    1  | video_id | int  | 视频id，以"v_"为前缀
+    2  | video_number | string | 当前的集数
+    3 | video_name | string | 名称
+      
+  ##### 异常示例
+  ```
+  {
+     status_code: 17007
+     message: pid错误或无此接口调用权限
+     content: {}
+     timestamp: 1557492848602
+     date: 2019-05-10 20:54:08
+   }
+  ```
+  
+ ##### 业务错误码
+ 序号  | 错误码 |   错误描述   | 解决方案
+ ---- | ------- | ------ | -----
+   1  | 17007 | 参数错误  | 检查请求参数，修改后重新发起请求
+   2  | 17006 | sign 不正确 | 传入的 sign 错误，请修正
 
   全量接口详情查看 [TestMovie.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/test/java/cn/vcinema/partner/TestMovie.java) 文件中`getMediaInfoSuccessful`方法
 
