@@ -4,6 +4,7 @@
 
 联系方式: `hanzhangchao@vcinema.cn` / `15556927463`
 
+可以通过该接口同步媒资信息，接口有全量和增量两种模式可选。其中增量接口为获取半小时内新增更新的媒资。
 
 ## 获取内容列表 API
 
@@ -133,8 +134,8 @@ PID access secret:
   12  | episode_num  |   string | 集数/季数（movie_type为3是季数）
   13  | vertical_pic  |   string | 竖版海报
   14  | horizontal_pic  |   string | 横版海报
-  15  | media_seasons | list | 如果其是季播剧，则包含该剧的全部季集合（不为空）
-  16 | video | list | 如果其是电影，则包含视频（不为空）
+  15  | media_seasons | list | 如果其是季播剧，则包含该剧的全部季集合
+  16 | video | list | 如果其是电影，则包含视频
 
   ##### 季信息（season）:
 
