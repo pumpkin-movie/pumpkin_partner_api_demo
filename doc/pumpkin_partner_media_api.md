@@ -166,10 +166,10 @@ PID access secret:
   
   ##### 视频信息（video）:
   序号  | 字段名称 |   类型   | 备注
-  ---- | ------- | ------ | -----
-    1  | video_id | int  | 视频id，以"v_"为前缀，之后的值与媒资的movie_id相同
-    2  | video_number | string | 当前的集数
-    3 | video_name | string | 名称
+  ---- | ------- | ------   | -----
+   1  | video_id | int  | 视频id，以"v_"为前缀，之后的值与媒资的movie_id相同
+   2  | video_number | string | 当前的集数
+   3  | video_name | string | 名称
       
   ##### 异常示例
   ```
