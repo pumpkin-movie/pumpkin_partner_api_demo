@@ -34,7 +34,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * 影片信息相关的接口调用DEMO
- *
+ * <p>
  * User: Xulin Zhuang
  * Date: 29/1/2018
  * Time: 8:44 PM
@@ -50,7 +50,7 @@ public class TestMovie {
 
     @Test
     public void getMoviesSuccessful() throws Exception {
-        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+        String signatureNonce = Random.getRandom(10, Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
 
         String pid = PartnerInfo.pid;
@@ -58,36 +58,36 @@ public class TestMovie {
 
         LinkedMap params = new LinkedMap();
         params.put("pid", pid);
-        params.put("timestamp", timestamp+"");
+        params.put("timestamp", timestamp + "");
         params.put("signature_nonce", signatureNonce);
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
-        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,PartnerInfo.movie_action,PartnerInfo.format,pid,signatureNonce,accessSecret,timestamp,params));
-        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync",params),ResponseEntity.class);
+        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod, PartnerInfo.movie_action, PartnerInfo.format, pid, signatureNonce, accessSecret, timestamp, params));
+        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync", params), ResponseEntity.class);
         System.out.println(result);
-        assertEquals(200,result.getStatusCode());
+        assertEquals(200, result.getStatusCode());
     }
 
     @Test
     public void getMovieSignFailure() throws IOException {
-        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+        String signatureNonce = Random.getRandom(10, Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
 
         LinkedMap params = new LinkedMap();
-        params.put("pid",PartnerInfo.pid);
-        params.put("timestamp", timestamp+"");
+        params.put("pid", PartnerInfo.pid);
+        params.put("timestamp", timestamp + "");
         params.put("signature_nonce", signatureNonce);
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
         params.put("sign", "ERROR SIGN");
-        PayResponseBean result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync",params),PayResponseBean.class);
-        assertEquals("17006",result.getStatusCode());
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/movie/sync", params), PayResponseBean.class);
+        assertEquals("17006", result.getStatusCode());
 
     }
 
     @Test
-    public void getMediaInfoSuccessful () throws Exception{
-        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+    public void getMediaInfoSuccessful() throws Exception {
+        String signatureNonce = Random.getRandom(10, Random.TYPE.LETTER_CAPITAL_NUMBER);
         long timestamp = System.currentTimeMillis();
 
         String pid = PartnerInfo.pid;
@@ -99,20 +99,20 @@ public class TestMovie {
         params.put("signature_nonce", signatureNonce);
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
-        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,PartnerInfo.media_action,PartnerInfo.format,pid,signatureNonce,accessSecret,timestamp,params));
+        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod, PartnerInfo.media_action, PartnerInfo.format, pid, signatureNonce, accessSecret, timestamp, params));
         /** 全量模式 **/
         params.put("mode", "full");
 
-        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/media/sync",params),ResponseEntity.class);
+        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/media/sync", params), ResponseEntity.class);
         System.out.println(result);
-        assertEquals(200,result.getStatusCode());
+        assertEquals(200, result.getStatusCode());
     }
 
     @Test
-    public void getMediaInfoBatchSuccessful () throws Exception{
-        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
-        /** 增量：此处以2019-05-09 13:00:00为例，获取在此前半小时内更新的数据 **/
-        long timestamp = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).parse("2019-05-09 13:00:00", new ParsePosition(0)).getTime();
+    public void getMediaInfoBatchSuccessful() throws Exception {
+        String signatureNonce = Random.getRandom(10, Random.TYPE.LETTER_CAPITAL_NUMBER);
+        /** 增量：此处以2019-05-09 11:30:00为例，获取在此前半小时内更新的数据 **/
+        long timestamp = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).parse("2019-05-09 11:30:00", new ParsePosition(0)).getTime();
 
         String pid = PartnerInfo.pid;
         String accessSecret = PartnerInfo.accessSecret;
@@ -123,12 +123,34 @@ public class TestMovie {
         params.put("signature_nonce", signatureNonce);
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
-        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,PartnerInfo.media_action,PartnerInfo.format,pid,signatureNonce,accessSecret,timestamp,params));
+        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod, PartnerInfo.media_action, PartnerInfo.format, pid, signatureNonce, accessSecret, timestamp, params));
         /** 增量模式 **/
         params.put("mode", "batch");
 
-        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/media/sync",params),ResponseEntity.class);
+        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/media/sync", params), ResponseEntity.class);
         System.out.println(result);
-        assertEquals(200,result.getStatusCode());
+        assertEquals(200, result.getStatusCode());
+    }
+
+    @Test
+    public void getOfflineMediaSuccessful() throws Exception {
+        String signatureNonce = Random.getRandom(10, Random.TYPE.LETTER_CAPITAL_NUMBER);
+        /** 增量：此处以2019-05-09 19:30:00为例，获取在此前半小时内更新的数据 **/
+        long timestamp = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).parse("2019-05-09 19:30:00", new ParsePosition(0)).getTime();
+
+        String pid = PartnerInfo.pid;
+        String accessSecret = PartnerInfo.accessSecret;
+
+        LinkedMap params = new LinkedMap();
+        params.put("pid", pid);
+        params.put("timestamp", timestamp);
+        params.put("signature_nonce", signatureNonce);
+        params.put("format", PartnerInfo.format);
+        params.put("version", PartnerInfo.version);
+        params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod, PartnerInfo.media_offline_action, PartnerInfo.format, pid, signatureNonce, accessSecret, timestamp, params));
+
+        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.api.guoing.com:3505/media/offline_sync", params), ResponseEntity.class);
+        System.out.println(result);
+        assertEquals(200, result.getStatusCode());
     }
 }
