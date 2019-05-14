@@ -10,6 +10,8 @@ Develop Branch [![Build Status](https://travis-ci.org/pumpkin-movie/pumpkin_part
 
 [南瓜电影 媒资信息(层级关系)对接 API 文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/pumpkin_partner_media_api.md)
 
+[南瓜电影 下线媒资同步 API 文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/pumpkin_partner_offlinemedia_api.md)
+
 [南瓜电影 CDN LOG API 文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/cdn_log_api.md)
 
 [南瓜电影 直充 API 文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/pumpkin_partner_pay.md)
