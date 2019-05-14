@@ -135,8 +135,8 @@ public class TestMovie {
     @Test
     public void getOfflineMediaSuccessful() throws Exception {
         String signatureNonce = Random.getRandom(10, Random.TYPE.LETTER_CAPITAL_NUMBER);
-        /** 增量：此处以2019-05-09 19:30:00为例，获取在此前半小时内更新的数据 **/
-        long timestamp = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).parse("2019-05-09 19:30:00", new ParsePosition(0)).getTime();
+        /** 增量：此处以2019-05-10 00:00:00为例，获取在此前12小时内更新的数据 **/
+        long timestamp = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).parse("2019-05-10 00:00:00", new ParsePosition(0)).getTime();
 
         String pid = PartnerInfo.pid;
         String accessSecret = PartnerInfo.accessSecret;
