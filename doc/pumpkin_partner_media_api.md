@@ -65,37 +65,50 @@ PID access secret:
             "movie_actor":"Tim Faraday,Matthew Wilson,Nicola Walker,Sanjeev Bhaskar,Aasiya Shah,Lorraine Ashbourne,Will Brown,Jodie Tyack,Rosie Cavaliero,Louiza Patikas,Carolina Main,Bryony Hannah,Peter Egan,Douglas Hodge,Alex Lowe,Jonathan Harden,Tom Courtenay,Gemma Jones,Dominic Power,Adam Astill",
             "media_seasons":[
                 {
+                    "online_status":"ONLINE",
                     "movie_country":"英国",
-                    "total_parts":7,
-                    "movie_name":"不可遗忘第2季",
-                    "movie_id":"10372",
+                    "movie_name":"不可遗忘",
+                    "episode_num":2,
+                    "movie_id":"10371",
                     "movie_director":"Andy Wilson",
-                    "movie_title":"陈年死尸调查出惊天秘密",
-                    "movie_desc":"伦敦的利河里打捞起一个旅行箱，里面蜷成一团的尸骨已有近三十年。从遗留的手表和Call机开始追查，几个拥有各自成功人生的角色浮出水面...",
-                    "movie_actor":"Tim Faraday,atthew Wilson,Nicola Walker,Sanjeev Bhaskar,Aasiya Shah,Lorraine Ashbourne,Will Brown,Jodie Tyack,Rosie Cavaliero,Louiza Patikas,Carolina Main,Bryony Hannah,Peter Egan,Douglas Hodge,Alex Lowe",
-                    "movie_name_english":"Unforgotten Season 2",
+                    "movie_title":"法网恢恢 疏而不漏",
+                    "movie_desc":"是以调查陈年旧案为主题的英国罪案剧。",
+                    "movie_actor":"Tim Faraday,Matthew Wilson,Nicola Walker,Sanjeev Bhaskar,Aasiya Shah,Lorraine Ashbourne,Will Brown,Jodie Tyack,Rosie Cavaliero,Louiza Patikas,Carolina Main,Bryony Hannah,Peter Egan,Douglas Hodge,Alex Lowe,Jonathan Harden,Tom Courtenay,Gemma Jones,Dominic Power,Adam Astill",
+                    "media_seasons":[
+                        {
+                            "movie_country":"英国",
+                            "total_parts":7,
+                            "movie_name":"不可遗忘第2季",
+                            "movie_id":"10372",
+                            "movie_director":"Andy Wilson",
+                            "movie_title":"陈年死尸调查出惊天秘密",
+                            "movie_desc":"伦敦的利河里打捞起一个旅行箱，里面蜷成一团的尸骨已有近三十年。从遗留的手表和Call机开始追查，几个拥有各自成功人生的角色浮出水面...",
+                            "movie_actor":"Tim Faraday,Matthew Wilson,Nicola Walker,Sanjeev Bhaskar,Aasiya Shah,Lorraine Ashbourne,ill Brown,Jodie Tyack,Rosie Cavaliero,Louiza Patikas,Carolina Main,Bryony Hannah,Peter Egan,Douglas Hodge,Alex Lowe",
+                            "movie_name_english":"Unforgotten Season 2","movie_language":"英语",
+                            "season_parts":[
+                                {"movie_number":"1","movie_id":"10373"},
+                                {"movie_number":"2","movie_id":"10374"},
+                                {"movie_number":"3","movie_id":"10375"},
+                                {"movie_number":"4","movie_id":"10376"},
+                                {"movie_number":"5","movie_id":"10377"},
+                                {"movie_number":"6","movie_id":"10378"},
+                                {"movie_number":"7","movie_id":"10769"}
+                             ],
+                            "movie_year":"2017",
+                            "movie_alias":"未遗忘的事 第二季",
+                            "movie_type":"2"
+                         }
+                     ],
+                    "movie_name_english":"Unforgotten",
+                    "movieCreateTime":"2018-08-23 18:01:50",
                     "movie_language":"英语",
-                    "season_parts":[
-                        {"movie_number":"1","movie_id":"10373"},
-                        {"movie_number":"2","movie_id":"10374"},
-                        {"movie_number":"3","movie_id":"10375"},
-                        {"movie_number":"4","movie_id":"10376"},
-                        {"movie_number":"5","movie_id":"10377"},
-                        {"movie_number":"6","movie_id":"10378"},
-                        {"movie_number":"7","movie_id":"10769"}],
-                    "movie_year":"2017",
-                    "movie_alias":"未遗忘的事 第二季",
-                    "movie_type":"3"
-                    }],
-            "movie_name_english":"Unforgotten",
-            "movie_language":"英语",
-            "movie_image_list":[
-                "http://movie.image.vcinema.com.cn/rU1xCnhV4bBnT4XmuGAwKwnQ.png",
-                "http://movie.image.vcinema.com.cn/VVtPefbhBDW6NKAwfUN6RKky.png"],
-            "movie_year":"2015",
-            "movie_alias":"未遗忘的事",
-            "movie_type":"3"
-        }]
+                    "horizontal_pic":"http://movie.image.vcinema.com.cn/VVtPefbhBDW6NKAwfUN6RKky.png?imageMogr2/auto-orient/thumbnail/1080x608!",
+                    "movie_year":"2015",
+                    "movie_alias":"未遗忘的事",
+                    "movie_type":"2",
+                    "vertical_pic":"http://movie.image.vcinema.com.cn/rU1xCnhV4bBnT4XmuGAwKwnQ.png?imageMogr2/auto-orient/thumbnail/300x400!"
+                }
+            ]
     },
     "status_code": 200,
     "timestamp": "1517453525849",
@@ -136,6 +149,7 @@ PID access secret:
   14  | horizontal_pic  |   string | 横版海报
   15  | media_seasons | list | 如果其是季播剧，则包含该剧的全部季集合
   16 | video | list | 如果其是电影，则包含视频
+  17 | online_status | string | 媒资上线状态
 
   ##### 季信息（season）:
 
