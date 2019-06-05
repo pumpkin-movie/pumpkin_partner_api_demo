@@ -96,7 +96,7 @@ PID access secret:
                              ],
                             "movie_year":"2017",
                             "movie_alias":"未遗忘的事 第二季",
-                            "movie_type":"2"
+                            "movie_type":"3"
                          }
                      ],
                     "movie_name_english":"Unforgotten",
@@ -105,7 +105,7 @@ PID access secret:
                     "horizontal_pic":"http://movie.image.vcinema.com.cn/VVtPefbhBDW6NKAwfUN6RKky.png?imageMogr2/auto-orient/thumbnail/1080x608!",
                     "movie_year":"2015",
                     "movie_alias":"未遗忘的事",
-                    "movie_type":"2",
+                    "movie_type":"3",
                     "vertical_pic":"http://movie.image.vcinema.com.cn/rU1xCnhV4bBnT4XmuGAwKwnQ.png?imageMogr2/auto-orient/thumbnail/300x400!"
                 }
             ]
