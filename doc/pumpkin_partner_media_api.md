@@ -96,7 +96,7 @@ PID access secret:
                              ],
                             "movie_year":"2017",
                             "movie_alias":"未遗忘的事 第二季",
-                            "movie_type":"3"
+                            "movie_type":"2"
                          }
                      ],
                     "movie_name_english":"Unforgotten",
@@ -105,7 +105,7 @@ PID access secret:
                     "horizontal_pic":"http://movie.image.vcinema.com.cn/VVtPefbhBDW6NKAwfUN6RKky.png?imageMogr2/auto-orient/thumbnail/1080x608!",
                     "movie_year":"2015",
                     "movie_alias":"未遗忘的事",
-                    "movie_type":"3",
+                    "movie_type":"2",
                     "vertical_pic":"http://movie.image.vcinema.com.cn/rU1xCnhV4bBnT4XmuGAwKwnQ.png?imageMogr2/auto-orient/thumbnail/300x400!"
                 }
             ]
@@ -143,8 +143,8 @@ PID access secret:
   8  | movie_country  |   string | 电影国家
   9  | movie_language  |   string | 电影语言
   10  | movie_year  |   string | 电影年份
-  11 | movie_type  |   string | 电影类型，1: 电影 3：季播剧
-  12  | episode_num  |   string | 集数/季数（movie_type为3是季数）
+  11 | movie_type  |   string | 电影类型，1: 电影 2：季播剧
+  12  | episode_num  |   string | 集数/季数（movie_type为2是季数）
   13  | vertical_pic  |   string | 竖版海报
   14  | horizontal_pic  |   string | 横版海报
   15  | media_seasons | list | 如果其是季播剧，则包含该剧的全部季集合
@@ -165,7 +165,7 @@ PID access secret:
   8  | movie_country  |  string | 电影国家
   9  | movie_language  |  string | 电影语言
   10  | movie_year  |  string | 电影年份
-  11 | movie_type  |  string | 电影类型1: 电影 3：季播剧
+  11 | movie_type  |  string | 电影类型1: 电影 2：季播剧
   12  | total_parts  |   int | 当季的总集数
   13  | season_parts | list | 当季全集
 
