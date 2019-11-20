@@ -39,6 +39,7 @@ public class PartnerInfo {
     final static String pay_order_shdx_action = "/pay/pay_order_shdx";
     final static String send_insufficient_balance_msg_action = "/send/insufficientBalance";
     final static String get_order_action = "/pay/get_order";
+    final static String get_order_by_date_action = "/pay/get_order_by_date";
     final static String httpPostMethod = "POST";
     final static String httpGetMethod = "GET";
     final static String pid = "TEST_PID";

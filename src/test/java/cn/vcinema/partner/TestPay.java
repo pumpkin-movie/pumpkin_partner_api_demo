@@ -32,6 +32,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -342,6 +344,39 @@ public class TestPay {
 
 
         PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.get_order_action,parameter),PayResponseBean.class);
+        System.out.println(result);
+        assertEquals("200",result.getStatusCode());
+    }
+
+    /**
+     * 根据 PID 获取某一天的全部订单详情
+     *
+     */
+    @Test
+    public void getOrdersByPidAndDateSuccessful() throws Exception {
+        String signatureNonce = Random.getRandom(10,Random.TYPE.LETTER_CAPITAL_NUMBER);
+        long timestamp = System.currentTimeMillis();
+
+        String shop = "standard";
+        // 查询日期格式为定长8位，比如"20111203"
+        String localDate = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
+
+        Map<String, String> params = new HashMap<>();
+        params.put("version", PartnerInfo.version);
+        params.put("shop", shop);
+        params.put("query_date", localDate);
+
+        List<NameValuePair> parameter = new ArrayList<>();
+        parameter.add(new BasicNameValuePair("pid", PartnerInfo.pid));
+        parameter.add(new BasicNameValuePair("timestamp", timestamp+""));
+        parameter.add(new BasicNameValuePair("signature_nonce", signatureNonce));
+        parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
+        parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
+        parameter.add(new BasicNameValuePair("shop", shop));
+        parameter.add(new BasicNameValuePair("query_date",localDate));
+
+        parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.get_order_by_date_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.api.guoing.com:3505"+PartnerInfo.get_order_by_date_action,parameter),PayResponseBean.class);
         System.out.println(result);
         assertEquals("200",result.getStatusCode());
     }
