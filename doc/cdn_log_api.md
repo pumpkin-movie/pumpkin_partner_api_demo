@@ -12,7 +12,7 @@
 #### API 地址及校验信息: 
 
 ```
-测试地址：http://dev.api.guoing.com:3505/cdn/log
+测试地址：http://dev.pay.vcinema.cn:3505/cdn/log
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
 ```
@@ -20,7 +20,7 @@
 ### 获取CDN buffer statistics下载地址
 
 ```
-测试地址：http://dev.api.guoing.com:3505/cdn/buffer_statistics
+测试地址：http://dev.pay.vcinema.cn:3505/cdn/buffer_statistics
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
 ```

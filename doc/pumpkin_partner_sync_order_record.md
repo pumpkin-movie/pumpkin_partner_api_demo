@@ -12,7 +12,7 @@
 请联系后获取详细内容
 
 ```
-测试地址：http://dev.api.guoing.com:3505/order/sync
+测试地址：http://dev.pay.vcinema.cn:3505/order/sync
 ```
 
 ```
