@@ -86,13 +86,13 @@ PID access secret:
                             "movie_actor":"Tim Faraday,Matthew Wilson,Nicola Walker,Sanjeev Bhaskar,Aasiya Shah,Lorraine Ashbourne,ill Brown,Jodie Tyack,Rosie Cavaliero,Louiza Patikas,Carolina Main,Bryony Hannah,Peter Egan,Douglas Hodge,Alex Lowe",
                             "movie_name_english":"Unforgotten Season 2","movie_language":"英语",
                             "season_parts":[
-                                {"movie_number":"1","movie_id":"10373"},
-                                {"movie_number":"2","movie_id":"10374"},
-                                {"movie_number":"3","movie_id":"10375"},
-                                {"movie_number":"4","movie_id":"10376"},
-                                {"movie_number":"5","movie_id":"10377"},
-                                {"movie_number":"6","movie_id":"10378"},
-                                {"movie_number":"7","movie_id":"10769"}
+                                {"movie_number":"1","movie_id":"10373","play_url":""},
+                                {"movie_number":"2","movie_id":"10374","play_url":""},
+                                {"movie_number":"3","movie_id":"10375","play_url":""},
+                                {"movie_number":"4","movie_id":"10376","play_url":""},
+                                {"movie_number":"5","movie_id":"10377","play_url":""},
+                                {"movie_number":"6","movie_id":"10378","play_url":""},
+                                {"movie_number":"7","movie_id":"10769","play_url":""}
                              ],
                             "movie_year":"2017",
                             "movie_alias":"未遗忘的事 第二季",
@@ -175,6 +175,7 @@ PID access secret:
 ---- | ------- | ------ | -----
   1  | movie_id | int  | 电影id
   2  | movie_number | string | 当前的集数
+  3  | play_url | string | 播放地址（当前为固定值，并非实际播放地址）
   
   注：剧 - 季 - 集三者同名字段相互独立，值不同
   
@@ -184,7 +185,8 @@ PID access secret:
    1  | video_id | int  | 视频id，以"v_"为前缀，之后的值与媒资的movie_id相同
    2  | video_number | string | 当前的集数
    3  | video_name | string | 名称
-      
+   4  | play_url | string | 播放地址（当前为固定值，并非实际播放地址） 
+     
   ##### 异常示例
   ```
   {
