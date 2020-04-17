@@ -103,7 +103,7 @@ public class TestMovie {
         /** 全量模式 **/
         params.put("mode", "full");
 
-        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.pay.vcinema.cn:3505/media/sync", params), ResponseEntity.class);
+        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://127.0.0.1:3505/media/sync", params), ResponseEntity.class);
         System.out.println(result);
         assertEquals(200, result.getStatusCode());
     }
