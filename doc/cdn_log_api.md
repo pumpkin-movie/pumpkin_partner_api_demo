@@ -61,7 +61,7 @@ PID access secret:
   "date": "2018-02-22 19:06:38",
   "status_code": 200,
   "message": "CDN LOG 获取成功",
-  "content": "http://pumpkin-log.oss-cn-beijing.aliyuncs.com/cdn_log/s1/20180201__b5b8bdd710fc463889e1559ebc9e1dcf?Expires=1519301198&OSSAccessKeyId=LTAIkJ14NWOp9qjn&Signature=V0DxQi8IEbdmN6Dh16%2FYYXI7%2FLQ%3D",
+  "content": "http://pumpkin-log.oss-cn-beijing.aliyuncs.com/cdn_log/s1/20180201__b5b8bdd710fc463889e1559ebc9e1dcf?Expires=1519301198&OSSAccessKeyId=xxx&Signature=V0DxQi8IEbdmN6Dh16%2FYYXI7%2FLQ%3D",
   "timestamp": "1519297598084"
 }
 ```
