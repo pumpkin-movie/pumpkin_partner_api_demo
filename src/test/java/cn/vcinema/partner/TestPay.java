@@ -80,7 +80,7 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
         parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.pay_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
-        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.pay.vcinema.cn:3505"+PartnerInfo.pay_action,parameter),PayResponseBean.class);
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+PartnerInfo.pay_action,parameter),PayResponseBean.class);
         assertEquals("200",result.getStatusCode());
     }
 
@@ -104,7 +104,7 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
         parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
         parameter.add(new BasicNameValuePair("sign", "error sign info"));
-        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.pay.vcinema.cn:3505"+PartnerInfo.pay_action,parameter),PayResponseBean.class);
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+PartnerInfo.pay_action,parameter),PayResponseBean.class);
         assertEquals("17006",result.getStatusCode());
     }
 
@@ -132,7 +132,7 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("format", PartnerInfo.format));
         parameter.add(new BasicNameValuePair("version", PartnerInfo.version));
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.pay_action,PartnerInfo.format,"ERROR_PID",signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
-        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.pay.vcinema.cn:3505"+PartnerInfo.pay_action,parameter),PayResponseBean.class);
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+PartnerInfo.pay_action,parameter),PayResponseBean.class);
         assertEquals("17007",result.getStatusCode());
     }
 
@@ -157,7 +157,7 @@ public class TestPay {
         params.put("format", PartnerInfo.format);
         params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,PartnerInfo.pay_statistics_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params));
 
-        PayStatisticsResponseBean result = JSON.parseObject(HttpClientUtil.doGet("http://dev.pay.vcinema.cn:3505"+PartnerInfo.pay_statistics_action,params),PayStatisticsResponseBean.class);
+        PayStatisticsResponseBean result = JSON.parseObject(HttpClientUtil.doGet("https://dev.partner.vcinema.cn:3505"+PartnerInfo.pay_statistics_action,params),PayStatisticsResponseBean.class);
         assertEquals("200",result.getStatusCode());
     }
 
@@ -210,7 +210,7 @@ public class TestPay {
                 params)));
 
 
-        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.pay.vcinema.cn:3505"+PartnerInfo.pay_order_action,parameter),PayResponseBean.class);
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+PartnerInfo.pay_order_action,parameter),PayResponseBean.class);
         System.out.println(result);
         assertEquals("200",result.getStatusCode());
     }
@@ -258,7 +258,7 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.pay_order_operator_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
         parameter.add(new BasicNameValuePair("updateType",updateType));
 
-        HNUnicomRspEntity result = JSON.parseObject(HttpClientUtil.doPost("http://dev.pay.vcinema.cn:3505"+PartnerInfo.pay_order_operator_action,parameter),HNUnicomRspEntity.class);
+        HNUnicomRspEntity result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+PartnerInfo.pay_order_operator_action,parameter),HNUnicomRspEntity.class);
 
         System.out.println(result.getResultCode());
         System.out.println(result.getMessage());
@@ -305,7 +305,7 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.pay_order_shdx_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
         parameter.add(new BasicNameValuePair("updateType",updateType));
 
-        HNUnicomRspEntity result = JSON.parseObject(HttpClientUtil.doPost("http://dev.pay.vcinema.cn:3505"+PartnerInfo.pay_order_shdx_action,parameter),HNUnicomRspEntity.class);
+        HNUnicomRspEntity result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+PartnerInfo.pay_order_shdx_action,parameter),HNUnicomRspEntity.class);
 
         System.out.println(result.getResultCode());
         System.out.println(result.getMessage());
@@ -343,7 +343,7 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.get_order_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
 
 
-        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.pay.vcinema.cn:3505"+PartnerInfo.get_order_action,parameter),PayResponseBean.class);
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+PartnerInfo.get_order_action,parameter),PayResponseBean.class);
         System.out.println(result);
         assertEquals("200",result.getStatusCode());
     }
@@ -376,7 +376,7 @@ public class TestPay {
         parameter.add(new BasicNameValuePair("query_date",localDate));
 
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.get_order_by_date_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
-        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("http://dev.pay.vcinema.cn:3505"+PartnerInfo.get_order_by_date_action,parameter),PayResponseBean.class);
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+PartnerInfo.get_order_by_date_action,parameter),PayResponseBean.class);
         System.out.println(result);
         assertEquals("200",result.getStatusCode());
     }
@@ -413,7 +413,7 @@ public class TestPay {
 
         parameter.add(new BasicNameValuePair("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpPostMethod,PartnerInfo.send_insufficient_balance_msg_action,PartnerInfo.format,PartnerInfo.pid,signatureNonce,PartnerInfo.accessSecret,timestamp,params)));
 
-        SendSMSRepEntity result = JSON.parseObject(HttpClientUtil.doPost("http://dev.pay.vcinema.cn:3505"+PartnerInfo.send_insufficient_balance_msg_action,parameter),SendSMSRepEntity.class);
+        SendSMSRepEntity result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+PartnerInfo.send_insufficient_balance_msg_action,parameter),SendSMSRepEntity.class);
 
         System.out.println(result.getResultCode());
         System.out.println(result.getMessage());

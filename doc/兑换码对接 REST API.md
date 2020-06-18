@@ -6,11 +6,11 @@
 
 #### API 地址: 
 
-测试地址: `http://dev.pay.vcinema.cn:3505/pay/redeem_code`
+测试地址: `https://dev.partner.vcinema.cn:3505/pay/redeem_code`
 =======
 #### API 地址及校验信息: 
 ```
-测试地址：http://dev.pay.vcinema.cn:3505
+测试地址：https://dev.partner.vcinema.cn:3505
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
 ```

@@ -63,7 +63,7 @@ public class TestMovie {
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
         params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod, PartnerInfo.movie_action, PartnerInfo.format, pid, signatureNonce, accessSecret, timestamp, params));
-        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.pay.vcinema.cn:3505/movie/sync", params), ResponseEntity.class);
+        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("https://dev.partner.vcinema.cn:3505/movie/sync", params), ResponseEntity.class);
         System.out.println(result);
         assertEquals(200, result.getStatusCode());
     }
@@ -80,7 +80,7 @@ public class TestMovie {
         params.put("format", PartnerInfo.format);
         params.put("version", PartnerInfo.version);
         params.put("sign", "ERROR SIGN");
-        PayResponseBean result = JSON.parseObject(HttpClientUtil.doGet("http://dev.pay.vcinema.cn:3505/movie/sync", params), PayResponseBean.class);
+        PayResponseBean result = JSON.parseObject(HttpClientUtil.doGet("https://dev.partner.vcinema.cn:3505/movie/sync", params), PayResponseBean.class);
         assertEquals("17006", result.getStatusCode());
 
     }
@@ -127,7 +127,7 @@ public class TestMovie {
         /** 增量模式 **/
         params.put("mode", "batch");
 
-        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.pay.vcinema.cn:3505/media/sync", params), ResponseEntity.class);
+        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("https://dev.partner.vcinema.cn:3505/media/sync", params), ResponseEntity.class);
         System.out.println(result);
         assertEquals(200, result.getStatusCode());
     }
@@ -149,7 +149,7 @@ public class TestMovie {
         params.put("version", PartnerInfo.version);
         params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod, PartnerInfo.media_offline_action, PartnerInfo.format, pid, signatureNonce, accessSecret, timestamp, params));
 
-        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("http://dev.pay.vcinema.cn:3505/media/offline_sync", params), ResponseEntity.class);
+        ResponseEntity<MovieResult> result = JSON.parseObject(HttpClientUtil.doGet("https://dev.partner.vcinema.cn:3505/media/offline_sync", params), ResponseEntity.class);
         System.out.println(result);
         assertEquals(200, result.getStatusCode());
     }

@@ -11,7 +11,7 @@
 #### API 地址及校验信息: 
 
 ```
-测试地址：http://dev.pay.vcinema.cn:3505/media/sync
+测试地址：https://dev.partner.vcinema.cn:3505/media/sync
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
 ```
