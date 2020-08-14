@@ -272,7 +272,7 @@ public class TestPay {
         long timestamp = System.currentTimeMillis();
 
         String order_number = "1000141000018";
-        String productId = "ng-3rd-m-nm12";
+        String productId = "TEST_PUMPKIN_PRODUCT_ID";
 //        String account = "13323250325";
         String account = "18017990527";
         String amount = "1";
