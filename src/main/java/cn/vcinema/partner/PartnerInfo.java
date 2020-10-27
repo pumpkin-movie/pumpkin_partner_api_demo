@@ -22,29 +22,29 @@ package cn.vcinema.partner;
 
 /**
  * Partner Info
- *
+ * <p>
  * User: Xulin Zhuang
  * Date: 29/1/2018
  * Time: 12:55 PM
  */
 public class PartnerInfo {
-    final static String format = "JSON";
-    final static String pay_action = "/pay/redeem_code";
-    final static String pay_statistics_action = "/pay/redeem_code_statistics";
-    final static String movie_action = "/movie/sync";
-    final static String media_action = "/media/sync";
-    final static String media_offline_action = "/media/offline_sync";
-    final static String pay_order_action = "/pay/pay_order";
-    final static String pay_order_operator_action = "/pay/pay_order_operator";
-    final static String pay_order_shdx_action = "/pay/pay_order_shdx";
-    final static String send_insufficient_balance_msg_action = "/send/insufficientBalance";
-    final static String get_order_action = "/pay/get_order";
-    final static String get_order_by_date_action = "/pay/get_order_by_date";
-    final static String httpPostMethod = "POST";
-    final static String httpGetMethod = "GET";
-    final static String pid = "TEST_PID";
-    final static String codeType = "m1";
-    final static String productType = "m1";
-    final static String accessSecret = "TEST_ACCESS_SECRET";
-    final static String version = "v1";
+    public final static String format = "JSON";
+    public final static String pay_action = "/pay/redeem_code";
+    public final static String pay_statistics_action = "/pay/redeem_code_statistics";
+    public final static String movie_action = "/movie/sync";
+    public final static String media_action = "/media/sync";
+    public final static String media_offline_action = "/media/offline_sync";
+    public final static String pay_order_action = "/pay/pay_order";
+    public final static String pay_order_operator_action = "/pay/pay_order_operator";
+    public final static String pay_order_shdx_action = "/pay/pay_order_shdx";
+    public final static String send_insufficient_balance_msg_action = "/send/insufficientBalance";
+    public final static String get_order_action = "/pay/get_order";
+    public final static String get_order_by_date_action = "/pay/get_order_by_date";
+    public final static String httpPostMethod = "POST";
+    public final static String httpGetMethod = "GET";
+    public final static String pid = "TEST_PID";
+    public final static String codeType = "m1";
+    public final static String productType = "m1";
+    public final static String accessSecret = "TEST_ACCESS_SECRET";
+    public final static String version = "v1";
 }
