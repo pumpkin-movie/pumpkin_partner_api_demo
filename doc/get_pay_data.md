@@ -113,4 +113,4 @@
 
 加密方式: `HmacSHA1`
 
-详情查看 [TestHT.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/src/java/cn/vcinema/partner/demo/HTDemo.java) 文件
+详情查看 [HTDemo.java](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/tree/master/src/main/java/cn/vcinema/partner/demo/HTDemo.java) 文件
