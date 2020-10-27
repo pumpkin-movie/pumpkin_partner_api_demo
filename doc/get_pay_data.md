@@ -73,9 +73,9 @@
             },
             {
                 "phone": "139xxxxxxxx",
-                "user_status": fasle,
+                "user_status": false,
                 "register_time": null,
-                "orders": []
+                "orders": null
             }
         ]
     },
