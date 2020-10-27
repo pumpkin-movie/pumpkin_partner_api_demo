@@ -14,6 +14,7 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class HTDemo {
+    // 请求域名
     private static final String prefix_url = "https://dev.partner.vcinema.cn:3505";
 
     // 初始化线程
