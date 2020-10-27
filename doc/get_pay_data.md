@@ -26,6 +26,17 @@
   4  | format    | string |  返回类型 标准参数：JSON
   5  | sign | string | sign 签名，加密方式请查看DEMO
 
+#### 返回参数:
+
+序号  | 字段名称 |   类型   | 备注
+---- | ------- | ------ | -----
+  1  | phone    | string  | 手机号
+  2  | user_status | boolean | 用户状态（是否存在订单）
+  3  | price | string   | 价格（分）
+  4  | products  | list | 订单产品信息
+
+
+
 #### 返回信息:
 
 `HTTP Status Code`: `200`
@@ -38,7 +49,8 @@
     "content": {
         "order_infos": [
             {
-                "phone": "12345678910",
+                "phone": "134xxxxxxxx",
+                "user_status": true,
                 "products": [
                     {
                         "product_code": "a",
@@ -48,23 +60,15 @@
                     {
                         "product_code": "a",
                         "product_price": 800,
-                        "pay_time": "2020-10-27 12:00:12"
+                        "pay_success_time": "2020-10-27 12:00:12"
                     }
                 ]
             },
             {
-                "phone": "12345678911",
+                "phone": "139xxxxxxxx",
+                "user_status": fasle,
                 "products": [
-                    {
-                        "product_code": "a",
-                        "product_price": 800,
-                        "pay_success_time": "2020-10-27 12:00:12"
-                    },
-                    {
-                        "product_code": "a",
-                        "product_price": 800,
-                        "pay_time": "2020-10-27 12:00:12"
-                    }
+                    
                 ]
             }
         ]
