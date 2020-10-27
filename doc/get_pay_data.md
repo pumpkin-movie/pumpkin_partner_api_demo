@@ -20,7 +20,7 @@
 
 序号  | 字段名称 |   类型   | 备注
 ---- | ------- | ------ | -----
-  1  |  phone    | string  | 手机号（可传多个，半角逗号隔开）
+  1  |  phone    | string  | 手机号（可传多个，半角逗号隔开，最多100个）
   2  | timestamp | long   | 时间戳
   3  | signature_nonce  | string | 随机数
   4  | format    | string |  返回类型 标准参数：JSON
