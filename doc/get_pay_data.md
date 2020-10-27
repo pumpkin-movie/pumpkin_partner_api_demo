@@ -27,14 +27,20 @@
   5  | sign | string | sign 签名，加密方式请查看DEMO
 
 #### 返回参数:
-
+##### 用户信息
 序号  | 字段名称 |   类型   | 备注
 ---- | ------- | ------ | -----
   1  | phone    | string  | 手机号
-  2  | user_status | boolean | 用户状态（是否查到该手机号的订单）
-  3  | price | string   | 价格（分）
-  4  | products  | list | 订单产品信息
+  2  | user_status | boolean | 用户状态（用户是否注册）
+  3  | register_time | string | 注册时间
+  4  | orders  | list | 订单产品信息
 
+##### 订单信息 order
+序号  | 字段名称 |   类型   | 备注
+---- | ------- | ------ | -----
+  1  | order_code    | string  | 订单code码
+  2  | order_price | int | 订单价格(单位分)
+  3  | order_pay_time | string | 订单支付成功时间
 
 
 #### 返回信息:
@@ -47,29 +53,29 @@
 {
     "message": "成功",
     "content": {
-        "order_infos": [
+        "users": [
             {
                 "phone": "134xxxxxxxx",
                 "user_status": true,
-                "products": [
+                "register_time": "2020-10-27 12:00:12",
+                "orders": [
                     {
-                        "product_code": "a",
-                        "product_price": 800,
-                        "pay_success_time": "2020-10-27 12:00:12"
+                        "order_code": "a",
+                        "order_price": 800,
+                        "order_success_time": "2020-10-27 12:00:12"
                     },
                     {
-                        "product_code": "a",
-                        "product_price": 800,
-                        "pay_success_time": "2020-10-27 12:00:12"
+                        "order_code": "a",
+                        "order_price": 800,
+                        "order_success_time": "2020-10-27 12:00:12"
                     }
                 ]
             },
             {
                 "phone": "139xxxxxxxx",
                 "user_status": fasle,
-                "products": [
-                    
-                ]
+                "register_time": null,
+                "orders": []
             }
         ]
     },
