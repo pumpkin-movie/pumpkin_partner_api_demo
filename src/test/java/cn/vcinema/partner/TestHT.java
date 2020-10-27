@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestHenTeng {
+public class TestHT {
 
     private static final String prefix_url = "https://dev.partner.vcinema.cn:3505";
 
