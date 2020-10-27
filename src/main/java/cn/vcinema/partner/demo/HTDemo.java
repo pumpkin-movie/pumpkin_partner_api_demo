@@ -73,7 +73,6 @@ public class HTDemo {
         // 并发获取数据
         for (int i = 0; i < 5000; i++) {
             String phone = "131xxxxxxx" + i / 10;
-            int number = i;
             Future<String> future = executor.submit(() -> getHTOrders(phone));
             resultList.add(future);
         }
