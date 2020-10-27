@@ -31,7 +31,7 @@
 序号  | 字段名称 |   类型   | 备注
 ---- | ------- | ------ | -----
   1  | phone    | string  | 手机号
-  2  | user_status | boolean | 用户状态（是否存在订单）
+  2  | user_status | boolean | 用户状态（是否查到该手机号的订单）
   3  | price | string   | 价格（分）
   4  | products  | list | 订单产品信息
 
