@@ -11,11 +11,35 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class HTDemo {
     private static final String prefix_url = "https://dev.partner.vcinema.cn:3505";
 
-    private final ExecutorService executor = Executors.newFixedThreadPool(100); // 100个并发
+    // 初始化线程
+    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 200, 360, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(100000), new NameTreadFactory(), new IgnorePolicy());
+
+    private static class NameTreadFactory implements ThreadFactory {
+        private final AtomicInteger mThreadNum = new AtomicInteger(1);
+
+        @Override
+        public Thread newThread(Runnable r) {
+            return new Thread(r, "ht-thread-" + mThreadNum.getAndIncrement());
+        }
+    }
+
+    private static class IgnorePolicy implements RejectedExecutionHandler {
+        @Override
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+            doLog(r, e);
+        }
+
+        private void doLog(Runnable r, ThreadPoolExecutor e) {
+            // 可做日志记录等
+            System.err.println(r.toString() + " rejected");
+        }
+    }
 
     /**
      * 通过手机号获取用户及订单信息
@@ -23,6 +47,7 @@ public class HTDemo {
      * @param phone 查询的手机号码，多个逗号分隔
      * @throws Exception
      */
+
     public String getHTOrders(String phone) throws Exception {
 
         String signatureNonce = Random.getRandom(10, Random.TYPE.LETTER_CAPITAL_NUMBER); // 获取10位随机数
