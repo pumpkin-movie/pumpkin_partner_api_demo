@@ -12,7 +12,7 @@
 请联系后获取详细内容
 
 ```
-测试地址：https://dev.partner.vcinema.cn:3505/order/sync
+测试地址：https://dev-environmental.vcinema.cn:3505/order/sync
 ```
 
 ```

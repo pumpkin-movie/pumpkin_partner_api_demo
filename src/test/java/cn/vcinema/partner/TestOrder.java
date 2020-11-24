@@ -87,7 +87,7 @@ public class TestOrder {
         parameter.add(new BasicNameValuePair("sign", sign));
 
 
-        ResponseEntity result = JSON.parseObject(HttpClientUtil.doPost("https://dev.partner.vcinema.cn:3505"+payOrderAction,parameter),ResponseEntity.class);
+        ResponseEntity result = JSON.parseObject(HttpClientUtil.doPost("https://dev-environmental.vcinema.cn:3505"+payOrderAction,parameter),ResponseEntity.class);
         System.out.println(result);
         assertEquals(200,result.getStatusCode());
     }

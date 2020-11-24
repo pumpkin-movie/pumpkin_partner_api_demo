@@ -53,7 +53,7 @@ public class TestCdn {
         params.put("version", PartnerInfo.version);
         params.put("log_date","20180222");
         params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,"/cdn/buffer_statistics",PartnerInfo.format,"pid",signatureNonce,"pid access secret",timestamp,params));
-        String result = JSON.parseObject(HttpClientUtil.doGet("https://dev.partner.vcinema.cn:3505/cdn/buffer_statistics",params),String.class);
+        String result = JSON.parseObject(HttpClientUtil.doGet("https://dev-environmental.vcinema.cn:3505/cdn/buffer_statistics",params),String.class);
         System.out.println(result);
         //System.out.println(result.getMessage());
         //assertEquals("200",result.getStatusCode());
@@ -73,7 +73,7 @@ public class TestCdn {
         params.put("version", PartnerInfo.version);
         params.put("log_date","20180202");
         params.put("sign", PartnersApiSignature.partnersApiSignature(PartnerInfo.httpGetMethod,"/cdn/buffer_statistics",PartnerInfo.format,"s1",signatureNonce,"k4LtF4JWay6TG8bD",timestamp,params));
-        String result = JSON.parseObject(HttpClientUtil.doGet("https://dev.partner.vcinema.cn:3505/cdn/buffer_statistics",params),String.class);
+        String result = JSON.parseObject(HttpClientUtil.doGet("https://dev-environmental.vcinema.cn:3505/cdn/buffer_statistics",params),String.class);
         System.out.println(result);
         //System.out.println(result.getMessage());
         //assertEquals("200",result.getStatusCode());

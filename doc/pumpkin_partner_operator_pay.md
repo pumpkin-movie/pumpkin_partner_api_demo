@@ -10,7 +10,7 @@
 #### API 地址及校验信息: 
 
 ```
-测试地址：https://dev.partner.vcinema.cn:3505/pay/pay_order_operator
+测试地址：https://dev-environmental.vcinema.cn:3505/pay/pay_order_operator
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
 测试PRODUCT ID: TEST_PUMPKIN_PRODUCT_ID
@@ -85,7 +85,7 @@ PRODUCT ID:
 ## 查询订单 API
 
 ```
-测试地址：https://dev.partner.vcinema.cn:3505/pay/get_order
+测试地址：https://dev-environmental.vcinema.cn:3505/pay/get_order
 测试PID：TEST_PID
 测试PID access secret：TEST_ACCESS_SECRET
 ```
