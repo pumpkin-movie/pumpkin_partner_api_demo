@@ -45,8 +45,8 @@ shop:
   9  | amount | integer | 充值数量
   10  | shop | string | 第三方标识（默认standard）
   11  | order_number | string | 第三方订单号
-  12  | original_price | string | cp提供的原价
-  13  | settle_price | string | 结算单价
+  12  | original_price | string | cp提供的原价(单位分)
+  13  | settle_price | string | 结算单价(单位分)
 
 
 
