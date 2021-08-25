@@ -23,3 +23,5 @@ Develop Branch [![Build Status](https://travis-ci.org/pumpkin-movie/pumpkin_part
 [南瓜电影 订单同步 API_文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/pumpkin_partner_sync_order_record.md)
 
 [南瓜电影 第三方支付回调 API_文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/pumpkin_partner_third_pay_notify.md)
+
+[南瓜电影 新版直充 API 文档](https://github.com/pumpkin-movie/pumpkin_partner_api_demo/blob/master/doc/pumpkin_partner_new_pay.md)
