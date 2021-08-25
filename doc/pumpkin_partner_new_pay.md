@@ -11,13 +11,13 @@
 
 ```
 测试环境地址：https://dev-environmental.vcinema.cn:3505/pay/new_pay_order
-正式环境地质：https://partner-api.vcinema.cn/pay/new_pay_order
+正式环境地址：https://partner-api.vcinema.cn/pay/new_pay_order
 ```
 
 请联系后获取详细内容
 ```
 pid：
-pid access secret:
+PrimarySecret:
 product_code: 
 shop:
 ```
@@ -31,13 +31,13 @@ shop:
   1  |  pid    | string  | 合作方ID
   2  | version | string | 接口版本，默认v1
   3  | timestamp | long   | 时间戳
-  4  | signature_nonce  | string | 随机数
+  4  | signature_nonce  | string | 接口随机数
   5  | format    | string |  返回类型 标准参数：JSON
   6  | sign | string | sign 签名，加密方式请查看DEMO
   7  | product_code | string | 商品编码 
   8  | account | string | 充值账号(手机号)
   9  | amount | integer | 充值数量
-  10  | shop | string | 第三方标识（默认standard）
+  10  | shop | string | 第三方标识
   11  | order_number | string | 第三方订单号
   12  | original_price | string | cp提供的原价(单位分)
   13  | settle_price | string | 结算单价(单位分)
@@ -46,10 +46,11 @@ shop:
 #### 返回参数说明
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
-|code  |是  |string |响应状态码   |
-|content |否  |Object | 操作结果    |
-|error     |否  |string | 错误信息    |
-|msg     |是  |string | 操作信息    |
+|message  |是  |string |响应信息   |
+|content |否  |Object | 操作结果，充值成功返回pumpkin_order_num(南瓜电影订单号)，否则为空字符    |
+|status_code  |是  |string |响应状态码   |
+|timestamp     |否  |string | 当前时间戳    |
+|date     |是  |string | 当前日期    |
 
 #### 返回示例:
 
@@ -58,11 +59,13 @@ shop:
 
 ```
 {
-  "timestamp": "2021-05-26T09:02:51.366Z",
-  "status": 200,
-  "error": ”",
-  "message": "成功",
-  "path": "/pay/new_pay_order"
+"message": "充值成功",
+"content": {
+"pumpkin_order_num": "2021081719481073187015******"
+},
+"status_code": 200,
+"timestamp": "1629200891743",
+"date": "2021-08-17 19:48:11"
 }
 ```
 
@@ -70,11 +73,11 @@ shop:
 
 ```
 {
-  "timestamp": "2021-05-26T09:02:51.366Z",
-  "status": "错误码",
-  "error": "",
-  "message": "提示语",
-  "path": "/pay/new_pay_order"
+"message": "错误信息",
+"content": "",
+"status_code": 错误状态码,
+"timestamp": "1629194384687",
+"date": "2021-08-17 17:59:44"
 }
 ```
 
@@ -90,7 +93,7 @@ shop:
 |17004|该IP禁止访问|
 |17005|商户状态失效|
 |17006|shop不能为空|
-|17007|产品码（product_code）为空|
+|17007|产品码（product_code）不能为空|
 |17008|format不能为空|
 |17009|timestamp不能为空|
 |17010|phone输入错误|
