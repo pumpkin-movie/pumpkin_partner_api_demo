@@ -2,7 +2,7 @@
 
 编写者: 杨露/孙博 
 
-联系方式: `yanglu@vcinema.cn` / `13598866342`
+联系方式: `yanglu@vcinema.cn` 
 
 
 ## 新版直充 API
@@ -26,31 +26,31 @@ shop:
 
 #### 传入参数说明:
 
-序号  | 字段名称 |   类型   | 备注
----- | ------- | ------ | -----
-  1  |  pid    | string  | 合作方ID
-  2  | version | string | 接口版本，默认v1
-  3  | timestamp | long   | 时间戳
-  4  | signature_nonce  | string | 接口随机数
-  5  | format    | string |  返回类型 标准参数：JSON
-  6  | sign | string | sign 签名，加密方式请查看DEMO
-  7  | product_code | string | 商品编码 
-  8  | account | string | 充值账号(手机号)
-  9  | amount | integer | 充值数量
-  10  | shop | string | 第三方标识
-  11  | order_number | string | 第三方订单号
-  12  | original_price | string | cp提供的原价(单位分)
-  13  | settle_price | string | 结算单价(单位分)
+序号  | 字段名称         |   类型  | 是否必选| 备注|
+---- | -------         | ------ | ----- | -----
+  1  |  pid            | String |是| 合作方PID
+  2  | version         | String |是| 接口版本，默认v1
+  3  | timestamp       | long   |是| 时间戳
+  4  | signature_nonce | String |是| 接口随机数
+  5  | format          | String |是| 返回数据类型 标准参数：JSON
+  6  | sign            | String |是| sign 签名，加密方式请查看DEMO
+  7  | product_code    | String |是| 商品编码 
+  8  | account         | String |是| 充值账号(手机号)
+  9  | amount          | Integer|是| 充值数量
+  10  | shop           | String |是| 第三方标识
+  11  | order_number   | String |是| 第三方订单号
+  12  | original_price | String |否| cp提供的原价(单位分)
+  13  | settle_price   | String |否| 结算单价(单位分)
 
 
 #### 返回参数说明
-|参数名|必选|类型|说明|
-|:----    |:---|:----- |-----   |
-|message  |是  |string |响应信息   |
-|content |否  |Object | 操作结果，充值成功返回pumpkin_order_num(南瓜电影订单号)，否则为空字符    |
-|status_code  |是  |string |响应状态码   |
-|timestamp     |否  |string | 当前时间戳    |
-|date     |是  |string | 当前日期    |
+|参数名|类型|说明|
+|:----    |:----- |-----   |
+|message     |String |响应信息 |
+|content     |Object | 操作结果，充值成功返回pumpkin_order_num(南瓜电影订单号)，否则为空字符 |
+|status_code |String |响应状态码 |
+|timestamp   |String | 当前时间戳 |
+|date        |String | 当前日期 |
 
 #### 返回示例:
 

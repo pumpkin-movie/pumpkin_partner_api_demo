@@ -26,6 +26,7 @@ import com.google.common.io.BaseEncoding;
 import org.junit.Test;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.SocketUtils;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -59,19 +60,32 @@ public class TestNewPay {
      */
     @Test
     public void pay() throws NoSuchAlgorithmException, InvalidKeyException, UnsupportedEncodingException {
+
+        /**
+         * signature_nonce:cf1dd4b9598f4665992a6c553f72855e
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - version:v1
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - format:JSON
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - timestamp:1629947589959
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - sign:j5LWdaYF%2BodqHKoR2zpIxkEBFSM%3D
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - pid:RTQHUGQECN
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - product_code:ng-3rd-m-nm01
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - account:15361824580
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - amount:1
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - shop:dahuiyuan
+         * 2021-08-26 11:13:09.997 [http-nio-3505-exec-3] INFO  c.v.p.p.c.NewPayApiController - order_number:2108263920481054110*/
         LocalDateTime now = LocalDateTime.now(ZoneId.of("+8"));
-        Long timestamp = now.toEpochSecond(ZoneOffset.of("+8")) * 1000;
+        Long timestamp = 1629947589959L;
         String action = "/pay/new_pay_order";
         String format = "JSON";
         String methodName = "POST";
-        String orderNumber = "2021062815391624872097944"; // 订单编号 唯⼀ 不可重复
-        String pid = "PID"; //商户PID
-        String accessSecret = "accessSecret"; //商户密钥
-        String signatureNonce = "signatureNonce"; // 随机数 不可重复
-        String productCode = "ng-3rd-m-nd07"; // 产品ID
-        String account = "18339****25"; // 充值⼿机号
+        String orderNumber = "2108263920481054110"; // 订单编号 唯⼀ 不可重复
+        String pid = "RTQHUGQECN"; //商户PID
+        String accessSecret = "FGKainXVPCXed5h"; //商户密钥
+        String signatureNonce = "cf1dd4b9598f4665992a6c553f72855e"; // 随机数 不可重复
+        String productCode = "ng-3rd-m-nm01"; // 产品ID
+        String account = "15361824580"; // 充值⼿机号
         String amount = "1"; // 充值数量 ⽬前只⽀持 1
-        String shop = "shop"; // 渠道
+        String shop = "dahuiyuan"; // 渠道
         LinkedHashMap<String, String> queryMap = Maps.newLinkedHashMap();
         queryMap.put("signature_nonce", signatureNonce);
         queryMap.put("version", "v1");
@@ -111,6 +125,7 @@ public class TestNewPay {
         MultiValueMap<String, Object> requestParam = new LinkedMultiValueMap<>();
         RestTemplate restTemplate = new RestTemplate();
         Map result = restTemplate.postForObject(uri, requestParam, Map.class);
+        System.err.println(result);
     }
 
     /**
@@ -144,7 +159,9 @@ public class TestNewPay {
         Mac mac = Mac.getInstance("HmacSHA1");
         mac.init(key);
         byte[] hmacValue = mac.doFinal(stringToSign.getBytes("utf-8"));
-        return BaseEncoding.base64().encode(hmacValue);
+        String encode = BaseEncoding.base64().encode(hmacValue);
+        System.out.println("signatureByHmacSHA1::::"+encode);
+        return encode;
     }
 
     /**
