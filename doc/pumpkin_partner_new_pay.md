@@ -30,13 +30,13 @@ shop:
 ---- | -------         | ------ | ----- | -----
   1  |  pid            | String |是| 合作方PID
   2  | version         | String |是| 接口版本，默认v1
-  3  | timestamp       | long   |是| 时间戳
+  3  | timestamp       | long   |是| 时间戳 单位：毫秒
   4  | signature_nonce | String |是| 接口随机数
   5  | format          | String |是| 返回数据类型 标准参数：JSON
   6  | sign            | String |是| sign 签名，加密方式请查看DEMO
   7  | product_code    | String |是| 商品编码 
   8  | account         | String |是| 充值账号(手机号)
-  9  | amount          | Integer|是| 充值数量
+  9  | amount          | Integer|是| 充值数量，目前只支持充值数量为1
   10  | shop           | String |是| 第三方标识
   11  | order_number   | String |是| 第三方订单号
   12  | original_price | String |否| cp提供的原价(单位分)
