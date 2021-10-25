@@ -17,14 +17,14 @@
 请联系后获取详细内容
 ```
 pid：
-PrimarySecret:
+accessSecret:
 product_code: 
 shop:
 ```
 
 #### 请求方式: `POST`
 
-#### 传入参数说明:
+#### 请求参数说明:
 
 序号  | 字段名称         |   类型  | 是否必选| 备注|
 ---- | -------         | ------ | ----- | -----
@@ -36,7 +36,7 @@ shop:
   6  | sign            | String |是| sign 签名，加密方式请查看DEMO
   7  | product_code    | String |是| 商品编码 
   8  | account         | String |是| 充值账号(手机号)
-  9  | amount          | Integer|是| 充值数量，目前只支持充值数量为1
+  9  | amount          | Integer|是| 充值数量，目前充值数量只能为1
   10  | shop           | String |是| 第三方标识
   11  | order_number   | String |是| 第三方订单号
   12  | original_price | String |否| cp提供的原价(单位分)
@@ -112,7 +112,7 @@ shop:
 |17024|不可重复领取|
 
 
-#### Sign生成规则,以及测试 demo
+#### Sign生成规则,以及测试 Demo
 
 加密方式: `HmacSHA1`
 
