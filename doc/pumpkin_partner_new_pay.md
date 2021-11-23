@@ -76,8 +76,8 @@ POST
 
 **注意：其中accessSecret作为秘钥进行加密。可联系相关工作人员获取。具体加密流程如下**
 ##### 加密方式：HmacSHA1
-    // accessSecret：秘钥
-    SecretKey key = new SecretKeySpec((accessSecret +"&").getBytes("utf-8"), "http://www.w3.org/2000/09/xmldsig#hmacsha1");
+    // access_secret：秘钥
+    SecretKey key = new SecretKeySpec((access_secret +"&").getBytes("utf-8"), "http://www.w3.org/2000/09/xmldsig#hmacsha1");
     Mac mac = Mac.getInstance("HmacSHA1");
     mac.init(key);
     //对拼接后字符串进行加密
