@@ -11,6 +11,12 @@
 	测试环境 ：https://dev-environmental.vcinema.cn:3505/pay/new_pay_order
 	正式环境 ：https://partner-api.vcinema.cn/pay/new_pay_order
 
+#### 请联系后获取详细内容
+	合作方id（pid）
+	加密秘钥（access_secret）
+	第三方标识（shop）
+	产品码（product_code）
+
 ### 接口请求方式
 POST
 
