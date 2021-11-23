@@ -26,7 +26,6 @@ import com.google.common.io.BaseEncoding;
 import org.junit.Test;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.util.SocketUtils;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -38,9 +37,6 @@ import java.net.URI;
 import java.net.URLEncoder;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.util.*;
 
 /**
@@ -67,7 +63,7 @@ public class TestNewPay {
         String methodName = "POST";
         String orderNumber = "21082639204810*****"; // 订单编号 唯⼀ 不可重复
         String pid = "pid"; //商户PID （联系相关工作人员获取）
-        String accessSecret = "PrimarySecret"; //商户密钥 （联系相关工作人员获取）
+        String accessSecret = "accessSecret"; //商户密钥 （联系相关工作人员获取）
         String shop = "shop"; // 渠道 （联系相关工作人员获取）
         String productCode = "ng-3rd-m-nm**"; // 产品ID （联系相关工作人员获取）
         String account = "1**********"; // 充值⼿机号
